@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 оны төсвийн тодотгол — Дуут туслахтай хуулийн төсөл</title>
+<style>
+:root{
+  --bg:#FFFFFF; --ink:#1A1A1A; --muted:#4f5967; --navy:#1B365D; --nav:#23449A; --nav-dark:#1B3780;
+  --gold:#c8952e; --gold2:#FFC72C; --line:#dbe2ec; --panel:#f3f6fa; --panel2:#e9eef6;
+  --support:#1e7047; --oppose:#a8241c; --neutral:#5b6573; --critique:#8a5a00;
+  --head-bg:rgba(255,255,255,.86); --cap-bg:#1B365D; --cap-ink:#fff;
+  --font:-apple-system,"SF Pro Text","SF Pro Display",system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f141b; --ink:#e9eef5; --muted:#a9b4c3; --navy:#a9c3ee; --nav:#1d3576; --nav-dark:#162a5e;
+    --line:#2a3547; --panel:#161e2a; --panel2:#1d2736; --head-bg:rgba(15,20,27,.86);
+    --support:#5cc98f; --oppose:#f08a80; --neutral:#aab4c2; --critique:#f0c060; --cap-bg:#0b1d3a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --ink:#e9eef5; --muted:#a9b4c3; --navy:#a9c3ee; --nav:#1d3576; --nav-dark:#162a5e;
+  --line:#2a3547; --panel:#161e2a; --panel2:#1d2736; --head-bg:rgba(15,20,27,.86);
+  --support:#5cc98f; --oppose:#f08a80; --neutral:#aab4c2; --critique:#f0c060; --cap-bg:#0b1d3a; color-scheme:dark;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 170px);font-size:17px}
+html.fs-sm{font-size:15px} html.fs-lg{font-size:20px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+img{max-width:100%}
+a{color:var(--navy)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;background:var(--gold2);color:#1A1A1A;padding:10px 14px;z-index:100;font-weight:700;border-radius:6px}
+.skip:focus{top:12px}
+
+/* focus: high contrast, always visible */
+:focus{outline:none}
+:focus-visible,[data-nav][tabindex="-1"]:focus{outline:4px solid var(--gold2);outline-offset:3px;box-shadow:0 0 0 7px #1B365D;border-radius:6px}
+.nav-cur{position:relative}
+
+/* ===== header ===== */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--head-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.brandbar{display:flex;align-items:center;gap:18px;padding:12px 20px}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;min-width:0}
+.brand img{width:76px;height:auto;flex:none}
+.brand-title{font-size:1.72rem;line-height:1.1;font-weight:800;color:var(--navy);letter-spacing:-.01em;margin:0}
+.brand-sub{font-size:.8rem;color:var(--muted);margin-top:4px}
+.head-tools{margin-left:auto;display:flex;align-items:center;gap:6px}
+.voice-toggle{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;border:2px solid var(--navy);background:transparent;color:var(--navy);font:inherit;font-weight:700;font-size:.85rem;padding:7px 12px;border-radius:999px;cursor:pointer}
+.voice-toggle[aria-pressed="true"]{background:var(--navy);color:var(--bg)}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;border:0;background:transparent;color:var(--ink);cursor:pointer;border-radius:8px}
+.icon-btn:hover{background:var(--panel)}
+.lang{display:inline-flex;align-items:center;gap:8px;font-weight:600;padding:0 8px}
+.flag{width:20px;height:20px;border-radius:50%;background:linear-gradient(90deg,#C4272F 0 33.3%,#015197 33.3% 66.6%,#C4272F 66.6%)}
+.mainnav{background:var(--nav)}
+.mainnav ul{list-style:none;margin:0 auto;padding:0 20px;display:flex;overflow-x:auto;scrollbar-width:none}
+.mainnav ul::-webkit-scrollbar{display:none}
+.mainnav a{display:block;white-space:nowrap;color:#fff;text-decoration:none;font-weight:600;font-size:.84rem;padding:17px 15px;text-transform:uppercase}
+.mainnav a:hover,.mainnav a[aria-current="page"]{background:var(--nav-dark)}
+.mainnav .caret::after{content:"";display:inline-block;margin-left:6px;border:4px solid transparent;border-top-color:#fff;vertical-align:1px;transform:translateY(2px)}
+
+/* font size rail like parliament.mn */
+.fs-rail{position:fixed;right:0;top:46%;z-index:30;display:flex;flex-direction:column;background:rgba(27,54,93,.92);border-radius:8px 0 0 8px;overflow:hidden}
+.fs-rail button{width:44px;height:42px;border:0;background:transparent;color:#fff;font:700 .95rem var(--font);cursor:pointer}
+.fs-rail button:hover,.fs-rail button[aria-pressed="true"]{background:rgba(255,199,44,.25)}
+
+/* ===== layout ===== */
+.crumbs{font-size:.85rem;color:var(--muted);padding:18px 0 6px}
+.crumbs a{color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start}
+@media (max-width:960px){.layout{grid-template-columns:1fr}}
+
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;color:var(--navy);background:var(--panel2);padding:5px 12px;border-radius:999px}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--gold2);box-shadow:0 0 0 3px rgba(255,199,44,.3)}
+h1.bill-title{font-size:clamp(1.55rem,2.6vw,2.15rem);line-height:1.2;margin:14px 0 20px;color:var(--ink);letter-spacing:-.015em;max-width:30ch}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border-top:2px solid var(--navy);margin:0 0 26px}
+.meta > div{padding:12px 14px 12px 0;border-bottom:1px solid var(--line)}
+.meta dt{font-size:.78rem;color:var(--muted);font-weight:600}
+.meta dd{margin:2px 0 0;font-weight:600;font-size:.95rem}
+.meta small{display:block;font-weight:400;color:var(--muted);font-size:.8rem}
+.meta .na{color:var(--muted);font-weight:500;font-style:italic}
+
+/* ===== the listen button (signature element) ===== */
+.listen{width:100%;display:flex;align-items:center;gap:18px;text-align:left;border:0;cursor:pointer;background:var(--navy);color:#fff;border-radius:16px;padding:20px 22px;font:inherit;position:relative;overflow:hidden}
+:root[data-theme="dark"] .listen{background:#1d3a6e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .listen{background:#1d3a6e}}
+.listen .disc{flex:none;width:62px;height:62px;border-radius:50%;background:var(--gold2);display:grid;place-items:center;color:#1B365D;box-shadow:0 0 0 6px rgba(255,199,44,.18)}
+.listen .l-main{font-size:1.28rem;font-weight:800;line-height:1.25;display:block}
+.listen .l-sub{display:block;font-size:.88rem;opacity:.85;margin-top:4px}
+.listen kbd{margin-left:auto;flex:none}
+.bars{display:none;gap:3px;align-items:flex-end;height:26px}
+.bars span{width:4px;background:#1B365D;border-radius:2px;height:30%}
+.listen.speaking .bars{display:flex}
+.listen.speaking .play{display:none}
+@media (prefers-reduced-motion:no-preference){
+  .listen.speaking .bars span{animation:eq 900ms ease-in-out infinite}
+  .listen.speaking .bars span:nth-child(2){animation-delay:-300ms}
+  .listen.speaking .bars span:nth-child(3){animation-delay:-600ms}
+  .listen.speaking .bars span:nth-child(4){animation-delay:-150ms}
+}
+@keyframes eq{0%,100%{height:25%}50%{height:100%}}
+
+kbd{display:inline-flex;align-items:center;justify-content:center;min-width:2.1em;height:2em;padding:0 .5em;border-radius:6px;font:700 .8rem var(--font);background:var(--bg);color:var(--ink);border:1px solid var(--line);box-shadow:0 2px 0 var(--line)}
+.listen kbd{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35);box-shadow:0 2px 0 rgba(255,255,255,.2)}
+
+/* AI badge + summary */
+.ai-badge{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;color:#5a3d00;background:#fff3cf;border:1px solid var(--gold);padding:4px 10px;border-radius:6px}
+:root[data-theme="dark"] .ai-badge{color:#ffe3a1;background:#3a2c0b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ai-badge{color:#ffe3a1;background:#3a2c0b}}
+.disclaimer{font-size:.85rem;color:var(--muted);margin:10px 0 0}
+.summary{margin-top:18px;border-left:4px solid var(--gold);padding:4px 0 4px 20px}
+.summary p{margin:.6em 0;font-size:1.06rem;max-width:68ch}
+
+section.block{margin-top:40px}
+h2{font-size:1.3rem;line-height:1.3;margin:0 0 12px;color:var(--navy)}
+h3{font-size:1.02rem;margin:0 0 4px}
+.lede{color:var(--muted);margin:0 0 16px;max-width:68ch}
+
+/* voting */
+.vote-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vote-btn{display:flex;align-items:center;gap:14px;padding:20px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:1.1rem;font-weight:800;cursor:pointer;text-align:left}
+.vote-btn .arrow{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.3rem}
+.vote-btn.oppose .arrow{background:var(--oppose)} .vote-btn.support .arrow{background:var(--support)}
+.vote-btn.support{flex-direction:row-reverse;text-align:right}
+.vote-btn small{display:block;font-size:.8rem;font-weight:500;color:var(--muted)}
+.vote-btn[aria-pressed="true"].support{border-color:var(--support);background:color-mix(in srgb,var(--support) 10%,var(--bg))}
+.vote-btn[aria-pressed="true"].oppose{border-color:var(--oppose);background:color-mix(in srgb,var(--oppose) 10%,var(--bg))}
+.vote-mini{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.vote-mini .vote-btn{font-size:.92rem;padding:10px 16px;font-weight:700;border-radius:10px}
+.vote-mini .vote-btn[aria-pressed="true"]{border-color:var(--navy);background:var(--panel2)}
+#vote.armed .vote-grid{outline:3px dashed var(--gold);outline-offset:8px;border-radius:14px}
+.vote-result{margin-top:12px;font-weight:700;min-height:1.5em}
+@media (max-width:560px){.vote-grid{grid-template-columns:1fr}.vote-btn.support{flex-direction:row;text-align:left}}
+
+.stats{margin-top:22px;padding:16px 18px;background:var(--panel);border-radius:12px}
+.stats-label{font-size:.85rem;font-weight:700;color:var(--navy)}
+.stats-note{font-size:.8rem;color:var(--muted);margin:2px 0 10px}
+.stance-bar{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--line)}
+.stance-bar span{height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:.84rem}
+.legend b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
+
+/* feedback */
+.rec-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.rec-btn{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--navy);background:var(--bg);color:var(--navy);font:inherit;font-weight:800;padding:12px 18px;border-radius:12px;cursor:pointer}
+.rec-btn.on{background:var(--oppose);border-color:var(--oppose);color:#fff}
+.rec-dot{width:12px;height:12px;border-radius:50%;background:currentColor}
+@media (prefers-reduced-motion:no-preference){.rec-btn.on .rec-dot{animation:pulse 1s ease-in-out infinite}}
+@keyframes pulse{50%{opacity:.25}}
+textarea{width:100%;min-height:130px;font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:14px;resize:vertical}
+textarea:focus-visible{border-color:var(--navy)}
+.fb-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.primary{border:0;background:var(--navy);color:var(--bg);font:inherit;font-weight:800;padding:12px 22px;border-radius:12px;cursor:pointer}
+.hint{font-size:.82rem;color:var(--muted)}
+.tracker{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;counter-reset:st}
+.tracker li{font-size:.74rem;line-height:1.3;color:var(--muted);border-top:4px solid var(--line);padding-top:8px}
+.tracker li.done{color:var(--ink);font-weight:700;border-top-color:var(--gold2)}
+@media (max-width:700px){.tracker{grid-template-columns:1fr 1fr}}
+.track-msg{font-size:.88rem;margin:10px 0 0;color:var(--muted)}
+
+/* brief */
+.changes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;counter-reset:ch}
+.changes li{counter-increment:ch;padding:16px 16px 16px 58px;position:relative;background:var(--panel);border-radius:12px}
+.changes li::before{content:counter(ch);position:absolute;left:16px;top:15px;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--bg);display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.changes p{margin:0;font-size:.93rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{border:1px solid var(--navy);color:var(--navy);border-radius:999px;padding:5px 12px;font-size:.86rem;font-weight:600}
+.src{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.src-row{display:grid;grid-template-columns:140px 1fr;border-bottom:1px solid var(--line)}
+.src-row:last-child{border-bottom:0}
+.src-row > *{padding:10px 14px;margin:0;font-size:.9rem}
+.src-row dt{background:var(--panel);font-weight:700;color:var(--navy)}
+@media (max-width:560px){.src-row{grid-template-columns:1fr}}
+.soon{display:inline-flex;gap:8px;align-items:center;border:1px dashed var(--muted);border-radius:8px;padding:8px 12px;font-size:.86rem;color:var(--muted)}
+
+/* aside */
+.aside{position:sticky;top:180px}
+@media (max-width:960px){.aside{position:static}}
+.keys{background:var(--panel);border-radius:14px;padding:18px}
+.keys h2{font-size:1.02rem;margin-bottom:10px}
+.keys dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:9px 12px;align-items:center;font-size:.88rem}
+.keys dd{margin:0}
+.voice-info{margin-top:14px;font-size:.8rem;color:var(--muted)}
+.warn{margin-top:12px;background:#fff1ee;color:#6d1a12;border:1px solid #e7a79e;border-radius:10px;padding:10px 12px;font-size:.84rem}
+:root[data-theme="dark"] .warn{background:#3a1512;color:#ffd2cc;border-color:#7a3027}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{background:#3a1512;color:#ffd2cc;border-color:#7a3027}}
+.rate{margin-top:12px;display:flex;gap:8px;align-items:center;font-size:.86rem}
+.rate select{font:inherit;padding:4px 8px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+
+/* caption bar */
+.caption{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--cap-bg);color:var(--cap-ink);padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:14px;align-items:center;box-shadow:0 -4px 18px rgba(0,0,0,.18)}
+.caption .cap-ico{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold2);color:#1B365D;display:grid;place-items:center}
+.caption.rec .cap-ico{background:#e04a3f;color:#fff}
+.caption p{margin:0;font-size:.98rem;max-width:100ch;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+
+footer{margin-top:56px;border-top:1px solid var(--line);padding:22px 0;font-size:.84rem;color:var(--muted)}
+
+/* start overlay */
+.overlay{position:fixed;inset:0;z-index:80;background:rgba(10,20,40,.72);display:grid;place-items:center;padding:20px}
+.overlay[hidden]{display:none}
+.dialog{background:var(--bg);color:var(--ink);max-width:520px;width:100%;border-radius:18px;padding:30px;text-align:center;border-top:6px solid var(--gold2)}
+.dialog img{width:84px}
+.dialog h2{font-size:1.45rem;margin:12px 0 8px}
+.dialog p{margin:0 0 20px;color:var(--muted)}
+.dialog .primary{width:100%;padding:16px;font-size:1.08rem}
+.ghost{margin-top:10px;width:100%;border:2px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-weight:700;padding:12px;border-radius:12px;cursor:pointer}
+
+@media (max-width:760px){
+  html{scroll-padding-top:150px}
+  .brandbar{flex-wrap:wrap;gap:8px 12px;padding:10px 16px 8px}
+  .brand{gap:10px;flex:1 1 100%}
+  .brand img{width:48px}
+  .brand-title{font-size:1.12rem}
+  .brand-sub{font-size:.72rem;margin-top:2px}
+  .head-tools{margin-left:0;width:100%;justify-content:space-between}
+  .voice-toggle{font-size:.78rem;padding:6px 10px}
+  .lang{display:none}
+  .icon-btn{width:38px;height:38px}
+  .mainnav a{padding:13px 12px;font-size:.78rem}
+  .fs-rail{display:none}
+  .listen{gap:14px;padding:16px}
+  .listen .disc{width:50px;height:50px}
+  .listen .l-main{font-size:1.08rem}
+  .listen kbd{display:none}
+  .changes{grid-template-columns:1fr}
+  .caption p{font-size:.9rem}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Үндсэн агуулга руу шилжих</a>
+
+<!-- Start overlay: browsers only allow speech after a user action -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="ovTitle" aria-describedby="ovDesc">
+  <div class="dialog">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAADICAMAAAB28zu6AAAB/lBMVEWfoS3RzWBgq2YlbpihnVVnm5XVXwCnxCjt25YnipyStJDqrwPHrmVTVCanzFuIWQ2u0osrokz/0AM4WHEumCymJAZIV0/MIAFAbI7/AADSmxfQvYXgzC86ax9aMxtTpyr/fwAghsN/fwC/fwC0tAA+MhwDNaFawDMaQpIAAAD9xwT+/vrquAhONhI6JhQSPZfWpwh1VxBCLBNlShGJZw6whwuumDa02Yv+9c8mSYrGmQmYdAyUiEdbQhJ2d1hVZG1twjOifAv+zATJqCX+0QXashq9kgn56bQDmDMWhMU8Vn0uirD+8bsvHBOn1HdGXHapk0xjbGQyU4eKylb/yQORzGz+xwX+zANpcWH+yAD/zgP27MhOtjOb0W3+ywN5xUotqTPYxpDn2Kq8oS2RdzaIfkzVxQ79uwA6ZJDJs3OEaCjgrgZ2XCXbu1T/0AMZojWki0nr2JXRuizoyir//wBlvjF8YypMlZl1wmr/0gA5kadtu1C7pGany4vXAQDkxFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhX7XSAAAAgHRSTlP//////////////xH///////+s////////Af///////wL/AgQD/////wD+//7///////////////////////////9q//v///////////////////9O/y+t/xDO////j///////////Dv///////9D//////wH/////Cf///////x212i8AACmvSURBVHja1X0JQ9tW064hpEmaNOm+v8u33Hv9Hp8ja8fWYiNkm2AwXsJOQsJWQqANWZo0Td+vf/175ki2ZbDBbL2t2gjb2h6NZp6ZOcso9a+/4JK6sjPfvv2XA727ztj67b8W6NtLzDTZ0u2/Euj/WmJaraaxpf/6C4GeBOaxMaCe/OuAvs2s2r1M5l7NYrt/FdC315kQH9y8+YEQV2OMlw769uQqY5Zy7wMs9xSLsdXJ239y0P85CcQm0/7+wQfffvvBB3/XmAnc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" alt="">
+    <h2 id="ovTitle">Дуут туслахыг эхлүүлэх</h2>
+    <p id="ovDesc">Гарын дурын товч дарахад дуут туслах асч, хуудсыг уншиж эхэлнэ. Дээш, доош сумаар шилжинэ.</p>
+    <button class="primary" id="startVoice" autofocus>Дуут туслахтай эхлэх</button>
+    <button class="ghost" id="startSilent">Дуугүйгээр үзэх</button>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap brandbar">
+    <a class="brand" href="#main" aria-label="Монгол Улсын Их Хурал — нүүр">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAADICAMAAAB28zu6AAAB/lBMVEWfoS3RzWBgq2YlbpihnVVnm5XVXwCnxCjt25YnipyStJDqrwPHrmVTVCanzFuIWQ2u0osrokz/0AM4WHEumCymJAZIV0/MIAFAbI7/AADSmxfQvYXgzC86ax9aMxtTpyr/fwAghsN/fwC/fwC0tAA+MhwDNaFawDMaQpIAAAD9xwT+/vrquAhONhI6JhQSPZfWpwh1VxBCLBNlShGJZw6whwuumDa02Yv+9c8mSYrGmQmYdAyUiEdbQhJ2d1hVZG1twjOifAv+zATJqCX+0QXashq9kgn56bQDmDMWhMU8Vn0uirD+8bsvHBOn1HdGXHapk0xjbGQyU4eKylb/yQORzGz+xwX+zANpcWH+yAD/zgP27MhOtjOb0W3+ywN5xUotqTPYxpDn2Kq8oS2RdzaIfkzVxQ79uwA6ZJDJs3OEaCjgrgZ2XCXbu1T/0AMZojWki0nr2JXRuizoyir//wBlvjF8YypMlZl1wmr/0gA5kadtu1C7pGany4vXAQDkxFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhX7XSAAAAgHRSTlP//////////////xH///////+s////////Af///////wL/AgQD/////wD+//7///////////////////////////9q//v///////////////////9O/y+t/xDO////j///////////Dv///////9D//////wH/////Cf///////x212i8AACmvSURBVHja1X0JQ9tW064hpEmaNOm+v8u33Hv9Hp8ja8fWYiNkm2AwXsJOQsJWQqANWZo0Td+vf/175ki2ZbDBbL2t2gjb2h6NZp6ZOcso9a+/4JK6sjPfvv2XA727ztj67b8W6NtLzDTZ0u2/Euj/WmJaraaxpf/6C4GeBOaxMaCe/OuAvs2s2r1M5l7NYrt/FdC315kQH9y8+YEQV2OMlw769uQqY5Zy7wMs9xSLsdXJ239y0P85CcQm0/7+wQfffvvBB3/XmAnc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" alt="Монгол Улсын төрийн сүлд">
+      <div>
+        <p class="brand-title">МОНГОЛ УЛСЫН ИХ ХУРАЛ</p>
+        <div class="brand-sub">Open Parliament AI — иргэдэд зориулсан туслах хэрэгсэл. Улсын Их Хуралтай албан ёсны холбоогүй.</div>
+      </div>
+    </a>
+    <div class="head-tools">
+      <button class="voice-toggle" id="voiceToggle" aria-pressed="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+        <span id="voiceToggleText">Дуут туслах: унтраалттай</span>
+      </button>
+      <span class="lang"><span class="flag" aria-hidden="true"></span>Мон</span>
+      <button class="icon-btn demo-off" aria-label="Хайх"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn demo-off" aria-label="Цэс"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" id="themeBtn" aria-label="Шөнийн горим солих"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg></button>
+    </div>
+  </div>
+  <nav class="mainnav" aria-label="Үндсэн цэс">
+    <ul class="wrap">
+      <li><a href="#" class="demo-off">Эхлэл</a></li>
+      <li><a href="#" class="demo-off caret">Улсын Их Хурлын тухай</a></li>
+      <li><a href="#" class="demo-off caret">Улсын Их Хурлын гишүүд</a></li>
+      <li><a href="#" class="demo-off caret">Улсын Их Хурлын үйл ажиллагаа</a></li>
+      <li><a href="#main" class="caret" aria-current="page">Цахим парламент</a></li>
+      <li><a href="#" class="demo-off caret">Тамгын газар</a></li>
+      <li><a href="#" class="demo-off caret">Мэдээ</a></li>
+      <li><a href="#" class="demo-off caret">Үндсэн хууль</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="fs-rail" role="group" aria-label="Текстийн хэмжээ">
+  <button data-fs="sm" aria-label="Текст жижигрүүлэх" aria-pressed="false">A−</button>
+  <button data-fs="md" aria-label="Текст хэвийн хэмжээ" aria-pressed="true">A</button>
+  <button data-fs="lg" aria-label="Текст томруулах" aria-pressed="false">A+</button>
+</div>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Байршил">
+    <a href="#" class="demo-off">Эхлэл</a> / <a href="#" class="demo-off">Цахим парламент</a> / Хэлэлцэж буй хуулийн төсөл
+  </nav>
+
+  <div class="layout">
+    <main id="main">
+      <span class="status"><i aria-hidden="true"></i>Хэлэлцэж байна</span>
+      <h1 class="bill-title" data-nav tabindex="-1">Монгол Улсын 2026 оны төсвийн тухай хуульд өөрчлөлт оруулах тухай хуулийн төсөл</h1>
+
+      <dl class="meta">
+        <div data-nav tabindex="-1" data-say="Төлөв: хэлэлцэж байна. Есдүгээр сарын арван дөрвөний байдлаар дөрвөн хэлэлцүүлгийн хоёр нь хийгдэж, гурав дахь хэлэлцүүлэгт бэлтгүүлэхээр байнгын хороонд шилжсэн.">
+          <dt>Төлөв</dt>
+          <dd>Хэлэлцэж байна<small>2026.09.14-ний байдлаар 2 дахь хэлэлцүүлэг хийгдэж, 3 дахьд бэлтгүүлэхээр байнгын хороонд шилжсэн</small></dd>
+        </div>
+        <div data-nav tabindex="-1" data-say="Санаачлагч: Монгол Улсын Засгийн газар. Ерөнхий сайд Н. Учрал өргөн мэдүүлсэн.">
+          <dt>Санаачлагч</dt>
+          <dd>Засгийн газар<small>Ерөнхий сайд Н.Учрал өргөн мэдүүлсэн</small></dd>
+        </div>
+        <div data-nav tabindex="-1" data-say="Өргөн мэдүүлсэн огноо: хоёр мянга хорин зургаан оны наймдугаар сарын хорин. Үзэл баримтлалыг наймдугаар сарын арван нэгэнд Сангийн сайд З. Мэндсайхан, Хууль зүй, дотоод хэргийн сайд С. Амарсайхан баталсан.">
+          <dt>Өргөн мэдүүлсэн</dt>
+          <dd>2026.08.20<small>Үзэл баримтлал 2026.08.11-нд батлагдсан (Сангийн сайд З.Мэндсайхан, ХЗДХ-ийн сайд С.Амарсайхан)</small></dd>
+        </div>
+        <div data-nav tabindex="-1" data-say="Үйлчлэх хугацаа: батлагдвал хоёр мянга хорин зургаан оны төсвийн жилийн үлдсэн хугацаанд, арванхоёрдугаар сарын гучин нэгэн хүртэл.">
+          <dt>Үйлчлэх хугацаа</dt>
+          <dd>2026 оны төсвийн жилийн үлдсэн хугацаа<small>Төсвийн жил 2026.12.31-нд дуусна</small></dd>
+        </div>
+        <div data-nav tabindex="-1" data-say="Иргэдээс санал авах эцсийн хугацаа: энэ мэдээлэл албан ёсны эх сурвалжид одоогоор алга байна.">
+          <dt>Иргэдээс санал авах хугацаа</dt>
+          <dd class="na">Албан ёсны эх сурвалжид одоогоор алга байна</dd>
+        </div>
+        <div data-nav tabindex="-1" data-say="Эх сурвалж: хуулийн төслийн үзэл баримтлал. Д-Парламент сайтаас авсан файл.">
+          <dt>Эх сурвалж</dt>
+          <dd>Хуулийн төслийн үзэл баримтлал<small>d.parliament.mn-ээс авсан файл</small></dd>
+        </div>
+      </dl>
+
+      <!-- ===== Signature: AI listen ===== -->
+      <button class="listen" id="listenBtn" data-nav
+        data-say="Товч: Хиймэл оюун ашиглан товч хэлбэрээр сонсох. Энтер дарахад хуулийн төслийн товч агуулга, санаачлагч, үйлчлэх хугацааг уншиж өгнө.">
+        <span class="disc" aria-hidden="true">
+          <svg class="play" width="26" height="26" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+          <span class="bars"><span></span><span></span><span></span><span></span></span>
+        </span>
+        <span>
+          <span class="l-main">Хиймэл оюун ашиглан товч хэлбэрээр сонсох</span>
+          <span class="l-sub">3–4 өгүүлбэрт: юу өөрчлөгдөх, хэн санаачилсан, хэзээ хүртэл үйлчлэх</span>
+        </span>
+        <kbd aria-hidden="true">Enter</kbd>
+      </button>
+
+      <div class="summary" id="summary" hidden aria-labelledby="sumHead">
+        <span class="ai-badge" data-nav tabindex="-1" data-say="Хиймэл оюуны тайлбар. Албан ёсны эх сурвалжтай тулган шалгана уу.">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.4 6.9H22l-6 4.5 2.3 7.1L12 16l-6.3 4.5L8 13.4 2 8.9h7.6z"/></svg>
+          AI тайлбар — Албан ёсны эх сурвалжтай тулган шалгана уу
+        </span>
+        <h2 class="sr-only" id="sumHead">Хиймэл оюуны товч хураангуй</h2>
+        <div id="sumText"></div>
+        <p class="disclaimer" data-nav tabindex="-1">Энэхүү тайлбар нь албан ёсны хууль зүйн эх бичвэрийг орлохгүй.</p>
+      </div>
+
+      <!-- ===== Vote ===== -->
+      <section class="block" id="vote" aria-labelledby="voteHead">
+        <h2 id="voteHead" data-nav tabindex="-1" data-say="Гарчиг: Санал өгөх. Дэмжих бол баруун сум, дэмжихгүй бол зүүн сум дараад Энтер дарна.">Санал өгөх</h2>
+        <p class="lede">Дэмжих бол <kbd>→</kbd>, дэмжихгүй бол <kbd>←</kbd> дараад <kbd>Enter</kbd>. Энэ бол иргэний санал бодол — УИХ-ын гишүүдийн санал хураалт биш.</p>
+        <div class="vote-grid" role="group" aria-label="Хуулийн төсөлд өгөх санал">
+          <button class="vote-btn oppose" data-stance="oppose" data-nav aria-pressed="false"
+            data-say="Товч: Дэмжихгүй, эсэргүүцэж байна. Энтер дарахад санал бүртгэгдэнэ. Баруун сумаар дэмжих сонголт руу шилжинэ.">
+            <span class="arrow" aria-hidden="true">←</span>
+            <span>Дэмжихгүй<small>Эсэргүүцэж байна</small></span>
+          </button>
+          <button class="vote-btn support" data-stance="support" data-nav aria-pressed="false"
+            data-say="Товч: Дэмжиж байна. Энтер дарахад санал бүртгэгдэнэ. Зүүн сумаар дэмжихгүй сонголт руу шилжинэ.">
+            <span class="arrow" aria-hidden="true">→</span>
+            <span>Дэмжиж байна<small>Хуулийн төслийг дэмжинэ</small></span>
+          </button>
+        </div>
+        <div class="vote-mini" role="group" aria-label="Бусад байр суурь">
+          <button class="vote-btn" data-stance="neutral" data-nav aria-pressed="false" data-say="Товч: Төвийг сахисан. Энтер дарахад санал бүртгэгдэнэ.">Төвийг сахисан</button>
+          <button class="vote-btn" data-stance="critique" data-nav aria-pressed="false" data-say="Товч: Санал-шүүмжлэл байна. Энтер дарахад санал бүртгэгдэнэ.">Санал-шүүмжлэл байна</button>
+        </div>
+        <p class="vote-result" id="voteResult" role="status"></p>
+
+        <div class="stats" id="stats" data-nav tabindex="-1">
+          <div class="stats-label">Иргэдийн санал бодлын статистик</div>
+          <div class="stats-note">УИХ-ын гишүүдийн санал хураалт биш. Зөвхөн энэ хуудсаар ирсэн бодит саналыг тоолно.</div>
+          <div class="stance-bar" id="stanceBar" aria-hidden="true"></div>
+          <div class="legend" id="legend"></div>
+        </div>
+      </section>
+
+      <!-- ===== Feedback ===== -->
+      <section class="block" id="feedback" aria-labelledby="fbHead">
+        <h2 id="fbHead" data-nav tabindex="-1" data-say="Гарчиг: Санал хүсэлт илгээх. Спэйс товч дарахад таны яриа шууд бичигдэнэ. Зогсоох бол Спэйсийг дахин дарна.">Санал хүсэлт илгээх</h2>
+        <p class="lede">Бичих эсвэл <kbd>Space</kbd> дараад дуугаар хэлнэ үү. Илгээхийн өмнө текстээ засаж болно. Нэр, утас зэрэг хувийн мэдээлэл бүү оруулна уу.</p>
+        <div class="rec-row">
+          <button class="rec-btn" id="recBtn" data-nav data-say="Товч: Дуугаар санал хэлэх. Спэйс эсвэл Энтер дарахад бичлэг эхэлнэ. Дахин дарвал зогсоно.">
+            <span class="rec-dot" aria-hidden="true"></span><span id="recText">Дуугаар хэлэх</span> <kbd aria-hidden="true">Space</kbd>
+          </button>
+          <span class="hint" id="recHint" aria-live="polite"></span>
+        </div>
+        <label for="fbText" class="sr-only">Санал хүсэлтийн текст</label>
+        <textarea id="fbText" maxlength="2000" placeholder="Таны санал энд бичигдэнэ…"></textarea>
+        <div class="fb-actions">
+          <button class="primary" id="sendBtn" data-nav data-say="Товч: Санал хүсэлт илгээх.">Санал хүсэлт илгээх</button>
+          <span class="hint">Бичих талбарт: <kbd>Ctrl</kbd>+<kbd>Enter</kbd> илгээнэ, <kbd>Esc</kbd> гарна</span>
+        </div>
+        <ol class="tracker" id="tracker" aria-label="Санал хүсэлтийн явц">
+          <li>Илгээсэн</li><li>Хүлээн авсан</li><li>Хянагдаж байна</li><li>Ажлын хэсэгт хүрсэн</li><li>Хэлэлцэгдсэн</li><li>Тусгагдсан / Тусгагдаагүй</li><li>Холбогдох зүйл, заалт</li>
+        </ol>
+        <p class="track-msg" id="trackMsg" data-nav tabindex="-1">Санал илгээсний дараа явц энд харагдана.</p>
+      </section>
+
+      <!-- ===== Legal brief ===== -->
+      <section class="block" aria-labelledby="b1">
+        <span class="ai-badge">AI тайлбар — Албан ёсны эх сурвалжтай тулган шалгана уу</span>
+        <h2 id="b1" data-nav tabindex="-1" style="margin-top:14px">Энэ хууль юуг зохицуулдаг вэ?</h2>
+        <p data-nav tabindex="-1">Баримт бичигт 2026 оны төсвийн жилд төвлөрүүлэх нийт орлого, зарцуулах хэмжээ, хөрөнгө ба өрийн удирдлага, улс болон орон нутгийн төсөв хоорондын шилжүүлгийн харилцааг өөрчлөхөөр заасан. Хуулийн төсөл 4 зүйл, 1 хавсралттай.</p>
+      </section>
+      <section class="block" aria-labelledby="b2">
+        <h2 id="b2" data-nav tabindex="-1">Яагаад өөрчлөх гэж байна?</h2>
+        <p data-nav tabindex="-1">Үзэл баримтлалд эдийн засгийн тодорхой бус байдал нэмэгдэж, иргэдийн орлого, амьжиргаанд дарамт үүссэн тул төсвийн хөрөнгийг хүнс, эрчим хүчний аюулгүй байдал, иргэдийн орлогыг хамгаалахад төвлөрүүлэх шаардлагатай гэж тайлбарласан. Хууль зүйн үндэслэлээр Төсвийн тухай хуулийн 34.1.4-т заасан «төсвийн ерөнхийлөн захирагч хооронд төсвийн зохицуулалт хийх» тохиолдлыг дурджээ.</p>
+      </section>
+      <section class="block" aria-labelledby="b3">
+        <h2 id="b3" data-nav tabindex="-1">Гол өөрчлөлтүүд</h2>
+        <ol class="changes">
+          <li data-nav tabindex="-1" data-say="Нэгдүгээр өөрчлөлт. Стратегийн бүтээгдэхүүний нөөц. Шатахуун, мах, гурил, хүнсний ногооны нийлүүлэлт, үнийн эрсдэлийг бууруулахын тулд хувийн хэвшилд тулгуурласан нөөц бүрдүүлэлтэд төсөв чиглүүлнэ."><h3>Стратегийн бүтээгдэхүүний нөөц</h3><p>Шатахуун, мах, гурил, хүнсний ногооны нийлүүлэлт, үнийн эрсдэлийг бууруулахын тулд хувийн хэвшилд тулгуурласан нөөц бүрдүүлэлтэд төсөв чиглүүлнэ.</p></li>
+          <li data-nav tabindex="-1" data-say="Хоёрдугаар өөрчлөлт. Тэтгэвэр, цалин. Ахмад настны суурь тэтгэврийг хоёр мянга хорин зургаан оны арван нэгдүгээр сараас олгох. Эрүүл мэндийн ажилтны цалинг хорин хувь, соёл, спорт, цаг уур зэрэг бусад салбарын ажилтны цалинг тавин хувь нэмэх санхүүжилт."><h3>Тэтгэвэр, цалин</h3><p>Ахмад настны суурь тэтгэврийг 2026 оны 11 дүгээр сараас олгох; эрүүл мэндийн ажилтны цалинг 20%, соёл, спорт, цаг уур зэрэг бусад салбарынхны цалинг 50% нэмэх санхүүжилт.</p></li>
+          <li data-nav tabindex="-1" data-say="Гуравдугаар өөрчлөлт. Эрчим хүч. Станц, компаниудын зайлшгүй засвар, шинэчлэл, тоног төхөөрөмжийн бэлэн байдлыг санхүүжүүлж, тарифын өсөлтийн дарамтыг бууруулна."><h3>Эрчим хүч</h3><p>Станц, компаниудын зайлшгүй засвар, шинэчлэл, тоног төхөөрөмжийн бэлэн байдлыг санхүүжүүлж, тарифын өсөлтийн дарамтыг бууруулна.</p></li>
+          <li data-nav tabindex="-1" data-say="Дөрөвдүгээр өөрчлөлт. Зардал хэмнэлт. Гадаад томилолт, тавилга, зочин хүлээн авах, засвар зэрэг зайлшгүй бус зардлыг оны үлдсэн хугацаанд хязгаарлаж, хэмнэлтийг тэргүүлэх чиглэлд шилжүүлнэ."><h3>Зардал хэмнэлт</h3><p>Гадаад томилолт, тавилга, зочин хүлээн авах, засвар зэрэг зайлшгүй бус зардлыг оны үлдсэн хугацаанд хязгаарлаж, хэмнэлтийг тэргүүлэх чиглэлд шилжүүлнэ.</p></li>
+          <li data-nav tabindex="-1" data-say="Тавдугаар өөрчлөлт. Төсөвт үйлдвэрийн газар. Өөрийн орлогоор зардлаа бүрэн санхүүжүүлэх боломжтой газруудыг төсвийн санхүүжилтээс үе шаттай гаргаж, давхардсан чиг үүргийг арилгана."><h3>Төсөвт үйлдвэрийн газар</h3><p>Өөрийн орлогоор зардлаа бүрэн санхүүжүүлэх боломжтой газруудыг төсвийн санхүүжилтээс үе шаттай гаргаж, давхардсан чиг үүргийг арилгана.</p></li>
+          <li data-nav tabindex="-1" data-say="Зургаадугаар өөрчлөлт. Төрийн өмчит компани. Ногдол ашгийг нэмэгдүүлж, хөрөнгийн удирдлагыг сайжруулах, шаардлагатай бол хувьцааг олон улсын хөрөнгийн зах зээлд санал болгох бэлтгэл хангана. Үүнтэй уялдан Үндэсний баялгийн сангийн тухай хуульд өөрчлөлт оруулна."><h3>Төрийн өмчит компани</h3><p>Ногдол ашгийг нэмэгдүүлж, хөрөнгийн удирдлагыг сайжруулах, шаардлагатай бол хувьцааг олон улсын хөрөнгийн зах зээлд санал болгох бэлтгэл хангана; Үндэсний баялгийн сангийн тухай хуульд өөрчлөлт оруулна.</p></li>
+        </ol>
+      </section>
+      <section class="block" aria-labelledby="b4">
+        <h2 id="b4" data-nav tabindex="-1">Хэнд илүү хамааралтай вэ?</h2>
+        <ul class="chips" data-nav tabindex="-1" data-say="Хамааралтай бүлгүүд: ахмад настан, эрүүл мэндийн ажилтан, соёл, спорт, цаг уурын ажилтан, эрчим хүчний хэрэглэгч, хүнсний нийлүүлэгч, төрийн байгууллага, төрийн өмчит компани.">
+          <li>Ахмад настан</li><li>Эрүүл мэндийн ажилтан</li><li>Соёл, спорт, цаг уурын ажилтан</li><li>Эрчим хүчний хэрэглэгч</li><li>Хүнсний нийлүүлэгч</li><li>Төрийн байгууллага</li><li>Төрийн өмчит компани</li>
+        </ul>
+      </section>
+      <section class="block" aria-labelledby="b5">
+        <h2 id="b5" data-nav tabindex="-1">Хамт боловсруулах хууль, тогтоол</h2>
+        <p data-nav tabindex="-1">Үзэл баримтлалд Үндэсний баялгийн сангийн тухай, Үнэт цаасны зах зээлийн тухай, Нийгмийн даатгалын сангаас олгох тэтгэврийн тухай, Цэргийн алба хаагчийн тэтгэвэр, тэтгэмжийн тухай, үйлдвэрлэлийн осол, мэргэжлээс шалтгаалсан өвчний тэтгэвэр, тэтгэмжийн тухай хуулиудад холбогдох өөрчлөлтийн төсөл, мөн Улсын Их Хурлын хоёр тогтоолын төслийг хамт боловсруулна гэж заасан.</p>
+        <p class="disclaimer">Энэхүү тайлбар нь албан ёсны хууль зүйн эх бичвэрийг орлохгүй.</p>
+      </section>
+
+      <section class="block" aria-labelledby="srcHead">
+        <h2 id="srcHead" data-nav tabindex="-1">Эх сурвалж</h2>
+        <dl class="src">
+          <div class="src-row" data-nav tabindex="-1" data-say="Эх сурвалж: Монгол Улсын 2026 оны төсвийн тухай хуульд өөрчлөлт оруулах тухай хуулийн төслийн үзэл баримтлал."><dt>Source</dt><dd>Хуулийн төслийн үзэл баримтлал (d.parliament.mn-ээс авсан файл)</dd></div>
+          <div class="src-row" data-nav tabindex="-1" data-say="Хууль зүйн үндэслэл: Төсвийн тухай хуулийн гучин дөрөвдүгээр зүйлийн 34.1.4 дэх заалт, Хууль тогтоомжийн тухай хуулийн хорин хоёрдугаар зүйлийн 22.1.2 дахь заалт."><dt>Law</dt><dd>Төсвийн тухай хууль; Хууль тогтоомжийн тухай хууль</dd></div>
+          <div class="src-row"><dt>Article</dt><dd>34 дүгээр зүйл; 22 дугаар зүйл</dd></div>
+          <div class="src-row"><dt>Paragraph</dt><dd>34.1.4; 22.1.2</dd></div>
+          <div class="src-row" data-nav tabindex="-1" data-say="Албан ёсны холбоос: үзэл баримтлалын файлын тодорхой холбоос системд бүртгэгдээгүй. Өргөн мэдүүлсэн болон хэлэлцүүлгийн мэдээг МҮОНРТ болон Айкон мэдээллийн сайтаас авсан."><dt>Official URL</dt><dd>
+            Үзэл баримтлалын файлын тодорхой холбоос бүртгэгдээгүй.<br>
+            Батлагдсан эх хууль: <a href="https://www.parliament.mn/nn/76093/" target="_blank" rel="noopener">parliament.mn/nn/76093</a><br>
+            Өргөн мэдүүлсэн тухай: <a href="https://www.mnb.mn/i/350938" target="_blank" rel="noopener">mnb.mn</a>, хэлэлцүүлгийн явц: <a href="https://ikon.mn/n/3qar" target="_blank" rel="noopener">ikon.mn</a>
+          </dd></div>
+        </dl>
+        <p style="margin-top:16px"><span class="soon" data-nav tabindex="-1" data-say="Дохионы хэлний видео: тун удахгүй нэмэгдэнэ. Одоогоор ажиллахгүй.">🤟 Дохионы хэлний видео — тун удахгүй нэмэгдэнэ</span></p>
+      </section>
+    </main>
+
+    <aside class="aside" aria-labelledby="keysHead">
+      <div class="keys">
+        <h2 id="keysHead">Гарын товчлуур</h2>
+        <dl>
+          <dt><kbd>↓</kbd> <kbd>↑</kbd></dt><dd>Шилжих, сонгосныг уншина</dd>
+          <dt><kbd>Enter</kbd></dt><dd>Сонгох, идэвхжүүлэх</dd>
+          <dt><kbd>→</kbd></dt><dd>Дэмжиж байна</dd>
+          <dt><kbd>←</kbd></dt><dd>Дэмжихгүй</dd>
+          <dt><kbd>Space</kbd></dt><dd>Дуугаар санал хэлэх / зогсоох</dd>
+          <dt><kbd>R</kbd></dt><dd>Сүүлийн мэдээг давтах</dd>
+          <dt><kbd>H</kbd></dt><dd>Тусламж сонсох</dd>
+          <dt><kbd>Esc</kbd></dt><dd>Зогсоох, горимоос гарах</dd>
+        </dl>
+        <label class="rate">Уншах хурд
+          <select id="rateSel">
+            <option value="0.8">Удаан</option>
+            <option value="1" selected>Хэвийн</option>
+            <option value="1.2">Хурдан</option>
+          </select>
+        </label>
+        <label class="rate" id="voiceRow" hidden>Хоолой
+          <select id="voiceSel"></select>
+        </label>
+        <div class="voice-info" id="voiceInfo">Дуу хоолой шалгаж байна…</div>
+        <div class="warn" id="voiceWarn" hidden></div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    Open Parliament AI бол Улсын Их Хуралтай албан ёсны холбоогүй, иргэдэд хуулийн төслийг ойлгоход туслах хэрэгсэл. AI тайлбар албан ёсны хууль зүйн эх бичвэрийг орлохгүй; шийдвэр гаргахдаа <a href="https://www.parliament.mn" target="_blank" rel="noopener">parliament.mn</a>-ийн эх бичвэртэй тулгана уу.
+  </footer>
+</div>
+
+<div class="caption" id="caption" aria-hidden="true">
+  <span class="cap-ico"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span>
+  <p id="captionText">Уншиж буй текст энд бичгээр харагдана.</p>
+</div>
+<div class="sr-only" id="live" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+(() => {
+"use strict";
+const BILL_ID = "budget-2026-amend";
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- Content (AI summary written from the concept document) ---------- */
+const SUMMARY = [
+  { text: "Энэ бол Засгийн газраас 2026 оны 8 дугаар сарын 20-нд Улсын Их Хуралд өргөн мэдүүлсэн, Монгол Улсын 2026 оны төсвийн тухай хуульд өөрчлөлт оруулах буюу төсвийн тодотголын хуулийн төсөл юм.",
+    say:  "Энэ бол Засгийн газраас хоёр мянга хорин зургаан оны наймдугаар сарын хоринд Улсын Их Хуралд өргөн мэдүүлсэн, Монгол Улсын хоёр мянга хорин зургаан оны төсвийн тухай хуульд өөрчлөлт оруулах буюу төсвийн тодотголын хуулийн төсөл юм." },
+  { text: "Үзэл баримтлалд ахмад настанд суурь тэтгэврийг 2026 оны 11 дүгээр сараас олгох, эрүүл мэндийн ажилтнуудын цалинг 20 хувь, соёл, спорт, цаг уур зэрэг бусад салбарын ажилтнуудын цалинг 50 хувиар нэмэх санхүүжилтийг тусгахаар заажээ.",
+    say:  "Үзэл баримтлалд ахмад настанд суурь тэтгэврийг энэ оны арван нэгдүгээр сараас олгох, эрүүл мэндийн ажилтнуудын цалинг хорин хувь, соёл, спорт, цаг уур зэрэг бусад салбарын ажилтнуудын цалинг тавин хувиар нэмэх санхүүжилтийг тусгахаар заажээ." },
+  { text: "Мөн шатахуун, мах, гурил, хүнсний ногооны стратегийн нөөц бүрдүүлэх, эрчим хүчний станцын засвар, шинэчлэлийг санхүүжүүлэх, гадаад томилолт, тавилга зэрэг зайлшгүй бус зардлыг хязгаарлахаар тусгасан.",
+    say:  "Мөн шатахуун, мах, гурил, хүнсний ногооны стратегийн нөөц бүрдүүлэх, эрчим хүчний станцын засвар, шинэчлэлийг санхүүжүүлэх, гадаад томилолт, тавилга зэрэг зайлшгүй бус зардлыг хязгаарлахаар тусгасан." },
+  { text: "Батлагдвал 2026 оны төсвийн жилийн үлдсэн хугацаанд, 12 дугаар сарын 31 хүртэл үйлчилнэ; 9 дүгээр сарын 14-ний байдлаар дөрвөн хэлэлцүүлгийн хоёр нь хийгдсэн байна.",
+    say:  "Батлагдвал хоёр мянга хорин зургаан оны төсвийн жилийн үлдсэн хугацаанд, арванхоёрдугаар сарын гучин нэгэн хүртэл үйлчилнэ. Есдүгээр сарын арван дөрвөний байдлаар дөрвөн хэлэлцүүлгийн хоёр нь хийгдсэн байна." }
+];
+const DISCLAIMER_SAY = "Энэ бол хиймэл оюуны тайлбар бөгөөд албан ёсны хууль зүйн эх бичвэрийг орлохгүй. Эх сурвалж: хуулийн төслийн үзэл баримтлал.";
+const VOTE_PROMPT = "Та энэ хуулийн төслийг дэмжиж байвал баруун сум товчийг дараад Энтер дарна уу. Дэмжихгүй бол зүүн сум товчийг дараад Энтер дарна уу. Дахин сонсох бол Эр товч дарна уу.";
+const FEEDBACK_PROMPT = "Хэрэв та санал хүсэлтээ хэлэх бол Спэйс товч дээр дарна уу. Дохио дуугарсны дараа ярихад таны яриа шууд бичигдэнэ. Зогсоох бол Спэйс товчийг дахин дарна уу.";
+const HELP = "Товчлуурын заавар. Доош сум: дараагийн хэсэг. Дээш сум: өмнөх хэсэг. Энтер: сонгох. Баруун сум: дэмжих. Зүүн сум: дэмжихгүй. Спэйс: дуугаар санал хэлэх, дахин дарвал зогсоно. Эр товч: сүүлийн мэдээг давтах. Эскейп: уншихыг зогсоох, горимоос гарах.";
+const STANCE = { support: "Дэмжиж байна", oppose: "Эсэргүүцэж байна", neutral: "Төвийг сахисан", critique: "Санал-шүүмжлэл байна" };
+const STANCE_COLOR = { support: "var(--support)", oppose: "var(--oppose)", neutral: "var(--neutral)", critique: "var(--critique)" };
+const NO_NEXT_STAGE = "Энэ саналын дараагийн шатны мэдээлэл одоогоор системд байхгүй байна.";
+
+$("#sumText").innerHTML = SUMMARY.map(s => `<p data-nav tabindex="-1">${s.text}</p>`).join("");
+SUMMARY.forEach((s, i) => { $("#sumText").children[i].dataset.say = s.say; });
+
+/* ---------- State ---------- */
+const st = { started:false, voiceOn:false, voteMode:false, confirmFb:false, recording:false,
+             kbNav:false, silent:false, lastSpoken:"", rate:1, myVote:null, fbBase:"" };
+
+/* ---------- Make any text speakable for a Mongolian TTS: numbers, dates, Latin words, symbols ---------- */
+const MN_ONES   = ["тэг","нэг","хоёр","гурав","дөрөв","тав","зургаа","долоо","найм","ес"];
+const MN_ONES_A = ["тэг","нэг","хоёр","гурван","дөрвөн","таван","зургаан","долоон","найман","есөн"];
+const MN_TENS   = ["","арав","хорь","гуч","дөч","тавь","жар","дал","ная","ер"];
+const MN_TENS_A = ["","арван","хорин","гучин","дөчин","тавин","жаран","далан","наян","ерэн"];
+const MN_MONTH  = ["","нэгдүгээр","хоёрдугаар","гуравдугаар","дөрөвдүгээр","тавдугаар","зургаадугаар","долдугаар","наймдугаар","есдүгээр","аравдугаар","арван нэгдүгээр","арван хоёрдугаар"];
+function mnUnder1000(x, attr){
+  const h = Math.floor(x / 100), t = Math.floor((x % 100) / 10), o = x % 10, seg = [];
+  if (h) seg.push((h > 1 ? MN_ONES_A[h] + " " : "") + ((t || o || attr) ? "зуун" : "зуу"));
+  if (t) seg.push((o || attr) ? MN_TENS_A[t] : MN_TENS[t]);
+  if (o) seg.push(attr ? MN_ONES_A[o] : MN_ONES[o]);
+  return seg.join(" ");
+}
+function mnNum(n, attr = false){
+  n = Math.floor(n);
+  if (!isFinite(n) || n < 0 || n >= 1e9) return String(n);
+  if (n === 0) return "тэг";
+  const mil = Math.floor(n / 1e6), th = Math.floor(n / 1000) % 1000, rest = n % 1000, seg = [];
+  if (mil) seg.push(mnUnder1000(mil, true) + " сая");
+  if (th) seg.push((th > 1 ? mnUnder1000(th, true) + " " : "") + ((attr && !rest) ? "мянган" : "мянга"));
+  if (rest) seg.push(mnUnder1000(rest, attr));
+  return seg.join(" ");
+}
+const mnFront = w => /[эөүеи]/.test(w.split(" ").pop());
+function mnWithSuffix(n, suf){
+  let w = mnNum(n, true);
+  if (w.endsWith("нэг")) w += "эн";
+  return (suf.startsWith("н") && w.endsWith("н")) ? w + suf.slice(1) : w + suf;
+}
+function mnOrdinal(n){ const w = mnNum(n); return w + (mnFront(w) ? "дүгээр" : "дугаар"); }
+const MN_LATIN = { "d.parliament.mn":"ди парламент цэг эм эн", "parliament.mn":"парламент цэг эм эн", "ikon.mn":"айкон цэг эм эн", "mnb.mn":"эм эн би цэг эм эн",
+  "chimege.com":"чимэгэ цэг ком", ai:"эй ай", api:"эй пи ай", enter:"энтер", space:"спэйс", esc:"эскейп", pdf:"пи ди эф", open:"оупэн", parliament:"парламент",
+  chimege:"чимэгэ", edge:"эдж", chrome:"кроум", microsoft:"майкрософт", google:"гүүгл", demo:"дэмо", tts:"ти ти эс", ctrl:"контрол", html:"эйч ти эм эл",
+  claude:"клод", r:"эр", h:"эйч", mn:"эм эн", bataa:"батаа", yesui:"есүй", natural:"нэчрал", online:"онлайн" };
+const MN_TR = { a:"а",b:"б",c:"к",d:"д",e:"э",f:"ф",g:"г",h:"х",i:"и",j:"ж",k:"к",l:"л",m:"м",n:"н",o:"о",p:"п",q:"к",r:"р",s:"с",t:"т",u:"у",v:"в",w:"в",x:"кс",y:"й",z:"з" };
+function mnSpeakable(text){
+  let s = String(text).replace(/https?:\/\//g, "").replace(/www\./g, "");
+  s = s.replace(/↑/g, " дээш сум ").replace(/↓/g, " доош сум ").replace(/→/g, " баруун сум ").replace(/←/g, " зүүн сум ");
+  s = s.replace(/[A-Za-z][A-Za-z.]*[A-Za-z]|[A-Za-z]/g, w => MN_LATIN[w.toLowerCase()] ?? [...w.toLowerCase()].map(c => MN_TR[c] || " ").join(""));
+  // dates 2026.08.20 / 2026-08-20
+  s = s.replace(/(\d{4})[.](\d{1,2})[.](\d{1,2})(?:-([\p{L}]+))?/gu, (m, y, mo, d, suf) => (+mo >= 1 && +mo <= 12)
+      ? `${mnNum(+y, true)} оны ${MN_MONTH[+mo]} сарын ${suf ? mnWithSuffix(+d, suf) : mnNum(+d)}` : m);
+  s = s.replace(/\b(\d{1,3})((?:,\d{3})+)\b/g, (m, a, b) => a + b.replace(/,/g, ""));        // 12,053 -> 12053
+  s = s.replace(/~\s*/g, "ойролцоогоор ");
+  s = s.replace(/(\d+)\s*[–—-]\s*(\d+)(?=\s*[\p{L}])/gu, (m, a, b) => `${mnNum(+a)} эсвэл ${b}`); // 3–4 өгүүлбэр
+  s = s.replace(/(\d+)(?:\.(\d+))?\s*%/g, (m, a, b) => `${b ? mnNum(+a) + " цэг " + mnNum(+b, true) : mnNum(+a, true)} хувь`);
+  s = s.replace(/(\d+)\.(\d+)(?:\.(\d+))?/g, (m, a, b, c) => [a, b, c].filter(Boolean).map(x => mnNum(+x)).join(" цэг "));
+  s = s.replace(/(\d+)-р(?![\p{L}])/gu, (m, a) => mnOrdinal(+a));
+  s = s.replace(/(\d+)\s+(дугаар|дүгээр)/g, (m, a) => mnOrdinal(+a));
+  s = s.replace(/(\d+)-([\p{L}]+)/gu, (m, a, suf) => mnWithSuffix(+a, suf));
+  s = s.replace(/(\d+)(?=\s+[\p{L}])/gu, (m, a) => mnNum(+a, true));  // before a word: attributive (2026 он -> ...зургаан он)
+  s = s.replace(/\d+/g, m => mnNum(+m));
+  s = s.replace(/[«»"“”„]/g, "").replace(/[—–]/g, ", ").replace(/[;]/g, ",").replace(/[\/|]/g, " ").replace(/\+/g, " нэмэх ")
+       .replace(/№/g, "дугаар ").replace(/[▶★•·]/g, " ").replace(/\p{Extended_Pictographic}/gu, " ");
+  s = s.replace(/([\p{L}])-([\p{L}])/gu, "$1$2");
+  return s.replace(/\s+([,.!?])/g, "$1").replace(/,\s*,/g, ",").replace(/\s+/g, " ").trim();
+}
+
+/* ---------- Chimege TTS via our own backend (/api/tts) ----------
+   The browser never sees the Chimege token: it only calls /api/tts on our server.
+   If the backend or Chimege is unavailable, speech falls back to the browser voice. */
+const CHUNK_MAX = 150;                 // Chimege limit is 200 characters; keep a safety margin
+const chimege = { ok: false, failed: false, everOk: false, voices: [], voice: null };
+const player = new Audio(); player.preload = "auto";
+const audioCache = new Map();          // "text|voice|speed" -> Promise<blob URL>
+async function initChimege(){
+  try{
+    const r = await fetch("/api/tts/health", { cache: "no-store" });
+    if (!r.ok) return;
+    const j = await r.json();
+    if (!j.ok) return;
+    chimege.ok = true; chimege.failed = false; chimege.everOk = true;
+    chimege.voices = Array.isArray(j.voices) ? j.voices : [];
+    chimege.voice = j.defaultVoice || (chimege.voices[0] && chimege.voices[0].id) || null;
+    renderVoicePicker(); renderVoiceInfo();
+  }catch(e){ /* page opened without the backend: browser voice is used */ }
+}
+let lastTtsError = "";
+function fetchAudio(text){
+  const key = [text, chimege.voice].join("|");
+  if (audioCache.has(key)) return audioCache.get(key);
+  const p = fetch("/api/tts", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text, voice: chimege.voice, speed: st.rate })
+  }).then(async r => {
+      if (!r.ok){
+        const j = await r.json().catch(() => ({}));
+        throw new Error(`${j.error || "error"} ${j.status ?? r.status} ${j.detail || ""}`.trim());
+      }
+      return r.blob();
+    })
+    .then(b => URL.createObjectURL(b));
+  p.catch(err => { audioCache.delete(key); lastTtsError = String(err.message || err); });
+  audioCache.set(key, p);
+  if (audioCache.size > 150){
+    const k = audioCache.keys().next().value;
+    audioCache.get(k).then(u => URL.revokeObjectURL(u), () => {});
+    audioCache.delete(k);
+  }
+  return p;
+}
+function showTtsError(){
+  const w = $("#voiceWarn"); w.hidden = false;
+  w.textContent = "Чимэгэ зарим хэсгийг уншиж чадсангүй: " + lastTtsError +
+    (mnVoice ? " — тэр хэсгийг хөтчийн Монгол хоолойгоор уншлаа." : " — Microsoft Edge хөтөч ашиглавал нөөц Монгол хоолой ажиллана. Шалгах: /api/tts/selftest");
+}
+function playUrl(url, my, text){
+  return new Promise(res => {
+    if (my !== tok) return res();
+    let done = false, guard = null;
+    const fin = () => { if (done) return; done = true; clearInterval(iv); clearTimeout(guard); player.onended = player.onerror = player.onloadedmetadata = null; res(); };
+    const iv = setInterval(() => { if (my !== tok){ player.pause(); fin(); } }, 80);
+    // Safety net: never hang if the browser doesn't fire "ended".
+    guard = setTimeout(fin, 4000 + text.length * 150);
+    player.onloadedmetadata = () => { if (isFinite(player.duration)){ clearTimeout(guard); guard = setTimeout(fin, player.duration * 1000 + 1500); } };
+    player.onended = fin; player.onerror = fin;
+    showCaption(text);
+    player.src = url;
+    player.playbackRate = st.rate; player.preservesPitch = true;
+    player.play().catch(fin);
+  });
+}
+function chimegeFailed(){
+  chimege.ok = false; chimege.failed = true; renderVoicePicker(); renderVoiceInfo();
+  setTimeout(initChimege, 30000);
+}
+function renderVoicePicker(){
+  const row = $("#voiceRow"), sel = $("#voiceSel");
+  if (!row) return;
+  row.hidden = !chimege.ok || chimege.voices.length < 2;
+  sel.innerHTML = chimege.voices.map(v => `<option value="${v.id}">${v.label}</option>`).join("");
+  if (chimege.voice) sel.value = chimege.voice;
+}
+
+/* ---------- Text-to-speech (Web Speech API, mn-MN) ---------- */
+const hasTTS = "speechSynthesis" in window;
+let mnVoice = null, fbVoice = null, voicesChecked = false;
+function loadVoices(){
+  if (!hasTTS) return renderVoiceInfo();
+  const vs = speechSynthesis.getVoices();
+  if (!vs.length) return;
+  const mn = vs.filter(v => /^mn([-_]|$)/i.test(v.lang));
+  mnVoice = mn.find(v => /natural|online|neural/i.test(v.name)) || mn[0] || null;
+  fbVoice = vs.find(v => /^ru([-_]|$)/i.test(v.lang) && /google|natural|online/i.test(v.name)) || vs.find(v => /^ru/i.test(v.lang)) || null;
+  voicesChecked = true;
+  renderVoiceInfo();
+}
+function renderVoiceInfo(){
+  const info = $("#voiceInfo"), warn = $("#voiceWarn");
+  if (chimege.ok){
+    const v = chimege.voices.find(x => x.id === chimege.voice);
+    info.textContent = "Монгол хоолой: Чимэгэ" + (v ? " — " + v.label : ""); warn.hidden = true; return;
+  }
+  if (!hasTTS){ info.textContent = "Энэ хөтөч дуу гаргах (Text-to-Speech) боломжгүй."; warn.hidden = false;
+    warn.textContent = "Дуут уншлага ажиллахгүй. Microsoft Edge эсвэл Google Chrome хөтөч ашиглана уу. Уншиж буй текст доод мөрөнд бичгээр харагдана."; return; }
+  if (mnVoice){
+    info.textContent = "Монгол хоолой: " + mnVoice.name;
+    warn.hidden = !chimege.failed;
+    if (chimege.failed) warn.textContent = "Чимэгэ сервертэй холбогдож чадсангүй — түр хугацаанд хөтчийн хоолойгоор уншиж байна.";
+    return;
+  }
+  if (!voicesChecked && !chimege.failed) return;
+  const prefix = chimege.failed ? "Чимэгэ сервертэй холбогдож чадсангүй — түр хугацаанд хөтчийн хоолойгоор уншиж байна. " : "";
+  info.textContent = fbVoice ? "Монгол хоолой олдсонгүй — ойролцоо хоолой: " + fbVoice.name : "Монгол хоолой олдсонгүй.";
+  warn.hidden = false;
+  warn.textContent = prefix + "Таны хөтөчид Монгол хэлний дуу хоолой алга. Хамгийн чанартай Монгол дуу хоолойг Microsoft Edge хөтөч (Bataa, Yesui хоолой) үнэгүй өгдөг. Одоогоор ойролцоо хоолойгоор уншиж байна.";
+}
+if (hasTTS){ loadVoices(); speechSynthesis.addEventListener("voiceschanged", loadVoices); }
+setTimeout(() => { voicesChecked = true; renderVoiceInfo(); }, 2500);
+
+let tok = 0;
+function chunk(text){
+  const out = [];
+  text.split(/(?<=[.!?…;])\s+/).forEach(p => {
+    while (p.length > CHUNK_MAX){
+      let i = p.lastIndexOf(",", CHUNK_MAX); if (i < 60) i = p.lastIndexOf(" ", CHUNK_MAX); if (i < 1) i = CHUNK_MAX;
+      out.push(p.slice(0, i + 1).trim()); p = p.slice(i + 1).trim();
+    }
+    if (p.trim()) out.push(p.trim());
+  });
+  return out;
+}
+function showCaption(t, rec){
+  $("#captionText").textContent = t;
+  $("#caption").classList.toggle("rec", !!rec);
+}
+function sayOne(t, my){
+  return new Promise(res => {
+    if (my !== tok) return res();
+    const u = new SpeechSynthesisUtterance(t);
+    const v = mnVoice || (chimege.everOk ? null : fbVoice);
+    u.lang = v ? v.lang : "mn-MN"; if (v) u.voice = v;
+    u.rate = st.rate;
+    let done = false;
+    const fin = () => { if (!done){ done = true; clearTimeout(tm); res(); } };
+    const tm = setTimeout(fin, 4000 + t.length * 120 / st.rate);
+    u.onend = fin; u.onerror = fin;
+    showCaption(t);
+    speechSynthesis.speak(u);
+  });
+}
+function setSpeaking(on){ $("#listenBtn").classList.toggle("speaking", on); }
+/* Returns true if the whole text was spoken without being interrupted. */
+/* Fetch one piece of audio; on failure retry once, then retry as two halves. */
+async function chimegeAudio(part){
+  try { return [await fetchAudio(part)]; } catch(e){}
+  await new Promise(r => setTimeout(r, 400));
+  try { return [await fetchAudio(part)]; } catch(e){}
+  if (part.length > 40){
+    let i = part.lastIndexOf(" ", Math.floor(part.length / 2)); if (i < 10) i = Math.floor(part.length / 2);
+    try { return [await fetchAudio(part.slice(0, i).trim()), await fetchAudio(part.slice(i).trim())]; } catch(e){}
+  }
+  return null;
+}
+async function speak(text){
+  st.lastSpoken = text;
+  // Once Chimege has been used, never fall back to a non-Mongolian browser voice: captions only until Chimege recovers.
+  const noGoodVoice = !chimege.ok && !mnVoice && (chimege.everOk || !hasTTS);
+  if (!st.voiceOn || noGoodVoice){
+    showCaption(text);
+    $("#live").textContent = ""; setTimeout(() => { $("#live").textContent = text; }, 30);
+    return true;
+  }
+  tok++; if (hasTTS) speechSynthesis.cancel(); player.pause();
+  const my = tok;
+  const parts = chunk(mnSpeakable(text));
+  if (chimege.ok){
+    let next = chimegeAudio(parts[0]);
+    for (let i = 0; i < parts.length; i++){
+      const urls = await next;
+      if (my !== tok) return false;
+      if (i + 1 < parts.length) next = chimegeAudio(parts[i + 1]);   // prefetch while this part plays
+      if (!urls){
+        showTtsError();
+        // Per-piece fallback only to a real Mongolian browser voice (Edge); otherwise caption + short tone.
+        if (mnVoice && hasTTS){ await sayOne(parts[i], my); }
+        else { showCaption(parts[i]); beep(300, 120); await new Promise(r => setTimeout(r, 300)); }
+        if (my !== tok) return false;
+        continue;
+      }
+      for (const u of urls){ await playUrl(u, my, parts[i]); if (my !== tok) return false; }
+    }
+    return my === tok;
+  }
+  for (const c of parts){
+    if (my !== tok) return false;
+    await sayOne(c, my);
+  }
+  return my === tok;
+}
+function stopSpeech(){ tok++; if (hasTTS) speechSynthesis.cancel(); player.pause(); setSpeaking(false); }
+
+/* ---------- Earcons ---------- */
+let actx = null;
+function beep(freq, ms = 140){
+  try{
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    const o = actx.createOscillator(), g = actx.createGain();
+    o.frequency.value = freq; o.type = "sine";
+    g.gain.setValueAtTime(.0001, actx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.25, actx.currentTime + .02);
+    g.gain.exponentialRampToValueAtTime(.0001, actx.currentTime + ms / 1000);
+    o.connect(g).connect(actx.destination); o.start(); o.stop(actx.currentTime + ms / 1000 + .02);
+  }catch(e){}
+}
+
+/* ---------- Focus navigation ---------- */
+function navItems(){ return $$("[data-nav]").filter(el => el.offsetParent !== null && !el.closest("[hidden]")); }
+function describe(el){
+  if (el.dataset.say) return el.dataset.say;
+  const label = (el.getAttribute("aria-label") || el.textContent || "").replace(/\s+/g, " ").trim();
+  if (el.tagName === "TEXTAREA"){
+    const v = el.value.trim();
+    return "Санал хүсэлтийн бичих талбар. " + (v ? "Одоогийн текст: " + v + "." : "Хоосон байна.") + " Гараас бичиж засна. Гарах бол Эскейп.";
+  }
+  if (/^H[1-3]$/.test(el.tagName)) return "Гарчиг: " + label;
+  if (el.tagName === "BUTTON") return "Товч: " + label;
+  if (el.tagName === "A") return "Холбоос: " + label;
+  return label;
+}
+function focusEl(el, { silent = false } = {}){
+  st.silent = silent; st.kbNav = !silent;
+  el.focus();
+  st.kbNav = false; st.silent = false;
+  el.scrollIntoView({ block: "center", behavior: reduceMotion ? "auto" : "smooth" });
+}
+function move(dir){
+  const items = navItems();
+  if (!items.length) return;
+  let i = items.indexOf(document.activeElement);
+  if (i < 0){
+    const a = document.activeElement;
+    if (!a || a === document.body){ focusEl(items[dir > 0 ? 0 : items.length - 1]); return; }
+    const after = items.findIndex(el => a.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING);
+    i = dir > 0 ? (after < 0 ? items.length : after) - 1 : (after < 0 ? items.length : after);
+  }
+  const n = i + dir;
+  if (n < 0){ speak("Хуудасны эхэнд байна."); return; }
+  if (n >= items.length){ speak("Хуудасны төгсгөлд хүрлээ. Дээш сумаар буцна уу."); return; }
+  focusEl(items[n]);
+}
+let tabbing = false;
+document.addEventListener("focusin", e => {
+  if (st.silent || !st.voiceOn || st.recording) return;
+  if (!(st.kbNav || tabbing)) return;
+  st.kbNav = false;
+  speak(describe(e.target));
+});
+
+/* ---------- Voice mode start / toggle ---------- */
+function setVoice(on){
+  st.voiceOn = on;
+  $("#voiceToggle").setAttribute("aria-pressed", String(on));
+  $("#voiceToggleText").textContent = "Дуут туслах: " + (on ? "асаалттай" : "унтраалттай");
+  $("#caption").setAttribute("aria-hidden", String(on));
+  if (!on) stopSpeech();
+}
+function closeOverlay(){ $("#overlay").hidden = true; st.started = true; }
+function startVoice(){
+  closeOverlay(); setVoice(true);
+  let msg = "Сайн байна уу. Та Улсын Их Хурлын хуулийн төслийн иргэдийн оролцооны хуудсанд байна. Энэ хуудсанд Монгол Улсын хоёр мянга хорин зургаан оны төсвийн тухай хуульд өөрчлөлт оруулах тухай хуулийн төсөл байна. Дээш, доош сум товчоор шилжихэд сонгогдсон хэсгийг уншиж өгнө. Одоо та «Хиймэл оюун ашиглан товч хэлбэрээр сонсох» товч дээр байна. Сонсох бол Энтер дарна уу. Тусламж сонсох бол Эйч товч дарна уу.";
+  if (!chimege.ok && hasTTS && voicesChecked && !mnVoice) msg = "Анхааруулга: таны хөтөчид Монгол хэлний дуу хоолой алга. Хамгийн сайн Монгол дуу хоолойг Майкрософт Эдж хөтөч өгдөг. " + msg;
+  focusEl($("#listenBtn"), { silent: true });
+  speak(msg);
+}
+$("#startVoice").addEventListener("click", startVoice);
+$("#startSilent").addEventListener("click", () => { closeOverlay(); setVoice(false); focusEl($("#listenBtn"), { silent: true }); });
+$("#voiceToggle").addEventListener("click", () => {
+  setVoice(!st.voiceOn);
+  if (st.voiceOn) speak("Дуут туслах асаалаа. Дээш, доош сумаар шилжинэ.");
+});
+
+/* ---------- AI summary playback ---------- */
+function showSummary(){ $("#summary").hidden = false; }
+async function playSummary(){
+  if (!st.voiceOn) setVoice(true);
+  showSummary(); exitVoteMode(true); st.confirmFb = false;
+  setSpeaking(true);
+  const ok = await speak(SUMMARY.map(s => s.say).join(" ") + " " + DISCLAIMER_SAY);
+  setSpeaking(false);
+  if (!ok) return;
+  enterVoteMode();
+}
+$("#listenBtn").addEventListener("click", playSummary);
+
+/* ---------- Voting ---------- */
+function enterVoteMode(){
+  st.voteMode = true; $("#vote").classList.add("armed");
+  speak(VOTE_PROMPT);
+}
+function exitVoteMode(silent){
+  if (!st.voteMode) return;
+  st.voteMode = false; $("#vote").classList.remove("armed");
+  if (!silent) speak("Санал өгөх горимоос гарлаа.");
+}
+function voteBtn(s){ return $(`.vote-btn[data-stance="${s}"]`); }
+function selectVote(s){
+  const b = voteBtn(s);
+  focusEl(b, { silent: true });
+  speak((s === "support" ? "Дэмжиж байна" : "Дэмжихгүй, эсэргүүцэж байна") + " сонгогдлоо. Батлах бол Энтер дарна уу. Нөгөө сонголт руу " + (s === "support" ? "зүүн" : "баруун") + " сумаар шилжинэ.");
+}
+function markVote(s){ $$(".vote-btn").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.stance === s))); }
+async function castVote(s){
+  exitVoteMode(true);
+  markVote(s);
+  let saved = false;
+  if (db && uid){
+    try { await db.doc("votes/" + uid).set({ bill: BILL_ID, stance: s, at: new Date().toISOString() }); saved = true; }
+    catch(e){ saved = false; }
+  }
+  st.myVote = s;
+  const label = STANCE[s];
+  const msg = saved
+    ? "Таны санал бүртгэгдлээ: " + label + "."
+    : "Таны сонголт: " + label + ". Анхааруулга: санал хадгалах сервер энэ харагдацад холбогдоогүй тул таны санал хадгалагдаагүй.";
+  $("#voteResult").textContent = msg;
+  focusEl($("#recBtn"), { silent: true });
+  await speak(msg + " " + FEEDBACK_PROMPT);
+}
+$$(".vote-btn").forEach(b => b.addEventListener("click", () => castVote(b.dataset.stance)));
+
+/* ---------- Speech-to-text feedback ---------- */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = null, stopReq = false, finalTxt = "", stopResolve = null;
+const ta = $("#fbText");
+function setRecUI(on){
+  $("#recBtn").classList.toggle("on", on);
+  $("#recText").textContent = on ? "Зогсоох" : "Дуугаар хэлэх";
+  $("#recHint").textContent = on ? "Бичиж байна… ярьж дуусаад Space дарна уу." : "";
+  if (on) showCaption("Бичиж байна… ярьж дуусаад Space дарна уу.", true);
+  else $("#caption").classList.remove("rec");
+}
+async function startRec(fresh){
+  if (!SR){
+    speak("Таны хөтөч яриа танихыг дэмжихгүй байна. Google Chrome хөтөч ашиглана уу. Эсвэл бичих талбарт гараас бичиж болно.");
+    $("#recHint").textContent = "Яриа таних боломжгүй хөтөч. Google Chrome ашиглана уу.";
+    return;
+  }
+  stopSpeech(); exitVoteMode(true); st.confirmFb = false;
+  if (fresh) ta.value = "";
+  st.fbBase = ta.value.trim() ? ta.value.trim() + " " : "";
+  finalTxt = ""; stopReq = false;
+  beep(880);
+  await new Promise(r => setTimeout(r, 280));
+  rec = new SR();
+  rec.lang = "mn-MN"; rec.continuous = true; rec.interimResults = true;
+  rec.onresult = e => {
+    let interim = "";
+    for (let i = e.resultIndex; i < e.results.length; i++){
+      const r = e.results[i];
+      if (r.isFinal) finalTxt += r[0].transcript.trim() + " "; else interim += r[0].transcript;
+    }
+    ta.value = (st.fbBase + finalTxt + interim).trim();
+    showCaption(ta.value || "Бичиж байна…", true);
+  };
+  rec.onerror = e => {
+    const map = {
+      "not-allowed": "Микрофоны зөвшөөрөл олгогдоогүй байна. Хөтчийн хаягийн мөрөн дэх микрофоны тэмдэг дээр дарж зөвшөөрнө үү. Хуудас өөр цонхон дотор нээгдсэн бол шинэ цонхонд нээж үзнэ үү.",
+      "service-not-allowed": "Яриа таних үйлчилгээ энэ хөтөч дээр хаалттай байна. Google Chrome хөтөч ашиглана уу.",
+      "language-not-supported": "Монгол хэлний яриа танилт энэ хөтөч дээр дэмжигдэхгүй. Google Chrome ашиглана уу.",
+      "network": "Яриа таних үйлчилгээнд холбогдож чадсангүй. Интернэт холболтоо шалгана уу.",
+      "audio-capture": "Микрофон олдсонгүй. Микрофоноо холбоод дахин оролдоно уу."
+    };
+    if (e.error === "no-speech" || e.error === "aborted") return;
+    stopReq = true; st.recording = false; setRecUI(false);
+    const m = map[e.error] || "Яриа танихад алдаа гарлаа. Дахин оролдох бол Спэйс дарна уу.";
+    $("#recHint").textContent = m; speak(m);
+  };
+  rec.onend = () => {
+    if (st.recording && !stopReq){ try { rec.start(); } catch(e){} return; } // Chrome stops after silence
+    if (stopResolve){ stopResolve(); stopResolve = null; }
+  };
+  let started = false;
+  rec.onstart = () => { started = true; };
+  try { rec.start(); } catch(e){ speak("Бичлэг эхлүүлж чадсангүй. Дахин оролдоно уу."); return; }
+  st.recording = true; setRecUI(true);
+  // Watchdog: if the microphone never starts (permission prompt, no mic), don't leave the user stuck.
+  setTimeout(() => {
+    if (st.recording && !started){
+      stopReq = true; st.recording = false; setRecUI(false);
+      try { rec.abort(); } catch(e){}
+      const m = "Микрофон асаагүй байна. Хөтчийн микрофоны зөвшөөрлийг шалгана уу. Дээш, доош сумаар үргэлжлүүлж болно.";
+      $("#recHint").textContent = m; speak(m);
+    }
+  }, 4000);
+}
+async function stopRec(){
+  stopReq = true; st.recording = false; setRecUI(false);
+  await new Promise(r => { stopResolve = r; try { rec.stop(); } catch(e){ r(); } setTimeout(r, 1200); });
+  beep(520);
+  const t = ta.value.trim();
+  if (!t){ speak("Яриа бичигдсэнгүй. Дахин оролдох бол Спэйс дарна уу."); return; }
+  st.confirmFb = true;
+  speak("Таны бичигдсэн санал: " + t + ". Илгээх бол Энтер. Дахин бичүүлэх бол Спэйс. Цуцлах бол Эскейп.");
+}
+function stopRecQuiet(){
+  stopReq = true; st.recording = false; setRecUI(false);
+  try { rec && rec.stop(); } catch(e){}
+  if (ta.value.trim()) $("#recHint").textContent = "Бичлэг зогссон. Текст талбарт хадгалагдсан.";
+}
+function cancelRec(){
+  stopReq = true; st.recording = false; setRecUI(false);
+  try { rec && rec.abort(); } catch(e){}
+  beep(330); speak("Бичлэгийг зогсоолоо. Бичигдсэн текст талбарт үлдсэн.");
+}
+function toggleRec(){ st.recording ? stopRec() : startRec(st.confirmFb); }
+$("#recBtn").addEventListener("click", toggleRec);
+
+async function submitFeedback(){
+  const text = ta.value.trim();
+  st.confirmFb = false;
+  if (!text){ speak("Санал хүсэлт хоосон байна. Спэйс дарж дуугаар хэлэх эсвэл бичих талбарт бичнэ үү."); return; }
+  let saved = false;
+  if (db){
+    try{
+      await db.collection("feedback").add({
+        bill: BILL_ID, text: text.slice(0, 2000), stance: st.myVote || null,
+        status: "Илгээсэн", createdAt: new Date().toISOString(),
+        classification: { aiResult: null, confidence: null, humanReview: "pending", finalResult: null }
+      });
+      saved = true;
+    }catch(e){ saved = false; }
+  }
+  const items = $$("#tracker li");
+  items.forEach((li, i) => li.classList.toggle("done", saved && i === 0));
+  let msg;
+  if (saved){
+    ta.value = "";
+    msg = "Таны санал хүсэлт илгээгдлээ. Төлөв: Илгээсэн. " + NO_NEXT_STAGE;
+    $("#trackMsg").textContent = "Төлөв: Илгээсэн. " + NO_NEXT_STAGE;
+  } else {
+    msg = "Санал хүсэлт илгээгдсэнгүй: санал хадгалах сервер энэ харагдацад холбогдоогүй байна. Текст талбарт хадгалагдсан хэвээр.";
+    $("#trackMsg").textContent = msg;
+  }
+  $("#trackMsg").dataset.say = msg;
+  speak(msg);
+}
+$("#sendBtn").addEventListener("click", submitFeedback);
+
+/* ---------- Keyboard ---------- */
+function isTyping(el){
+  if (!el) return false;
+  if (el.tagName === "TEXTAREA" || el.tagName === "SELECT" || el.isContentEditable) return true;
+  return el.tagName === "INPUT" && !["button","checkbox","radio","range","submit"].includes(el.type);
+}
+function repeat(){ if (st.lastSpoken) speak(st.lastSpoken); else speak("Давтах мэдээ алга."); }
+document.addEventListener("keydown", e => {
+  if (e.key === "Tab"){ tabbing = true; setTimeout(() => tabbing = false, 200); return; }
+  if (!st.started){
+    if (["Shift","Control","Alt","Meta","CapsLock"].includes(e.key)) return;
+    if (e.target && e.target.id === "startSilent" && (e.key === "Enter" || e.code === "Space")) return;
+    e.preventDefault(); startVoice(); return;
+  }
+  const typing = isTyping(e.target);
+  if (e.key === "Escape"){
+    e.preventDefault();
+    if (st.recording){ cancelRec(); return; }
+    stopSpeech();
+    if (typing){
+      e.target.blur();
+      if (e.target === ta){ focusEl($("#fbHead"), { silent: true }); speak("Бичих талбараас гарлаа. Илгээх товч доор байна."); }
+      return;
+    }
+    if (st.voteMode){ exitVoteMode(false); return; }
+    if (st.confirmFb){ st.confirmFb = false; speak("Илгээхийг цуцаллаа. Текст талбарт хадгалагдсан хэвээр."); return; }
+    speak("Уншихыг зогсоолоо.");
+    return;
+  }
+  if (typing){
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey) && e.target === ta){ e.preventDefault(); submitFeedback(); return; }
+    // Never trap the user in the text box: ↑ at the start / ↓ at the end leaves it.
+    if (e.target === ta && !e.shiftKey){
+      if (e.key === "ArrowDown" && ta.selectionEnd >= ta.value.length){ e.preventDefault(); move(1); }
+      else if (e.key === "ArrowUp" && ta.selectionStart === 0){ e.preventDefault(); move(-1); }
+    }
+    return;
+  }
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if (e.code === "Space"){ e.preventDefault(); if (!e.repeat) toggleRec(); return; }
+  if (st.recording){
+    // ↑/↓ while recording: stop recording (text is kept) and keep navigating — never get stuck here.
+    if (e.key === "ArrowDown" || e.key === "ArrowUp"){ e.preventDefault(); stopRecQuiet(); move(e.key === "ArrowDown" ? 1 : -1); }
+    return;
+  }
+  const inVote = e.target.closest && e.target.closest("#vote .vote-grid");
+  switch (e.key){
+    case "ArrowDown": e.preventDefault(); exitVoteMode(true); st.confirmFb = false; move(1); return;
+    case "ArrowUp":   e.preventDefault(); exitVoteMode(true); st.confirmFb = false; move(-1); return;
+    case "ArrowRight": if (st.voteMode || inVote){ e.preventDefault(); selectVote("support"); } return;
+    case "ArrowLeft":  if (st.voteMode || inVote){ e.preventDefault(); selectVote("oppose"); } return;
+    case "Enter": {
+      e.preventDefault();
+      if (e.repeat) return;
+      const t = e.target;
+      if (st.confirmFb){ submitFeedback(); return; }
+      if (st.voteMode && !t.classList.contains("vote-btn")){ speak("Эхлээд баруун эсвэл зүүн сум товчоор сонголтоо хийнэ үү."); return; }
+      if (t.matches("button, a[href]")){ t.click(); return; }
+      speak("Энэ хэсэгт хийх үйлдэл алга. Доош сумаар үргэлжлүүлнэ үү.");
+      return;
+    }
+  }
+  if (e.code === "KeyR"){ e.preventDefault(); repeat(); }
+  else if (e.code === "KeyH"){ e.preventDefault(); speak(HELP); }
+}, true);
+// Firefox fires button clicks on Space keyup — block it so Space only toggles recording.
+document.addEventListener("keyup", e => { if (e.code === "Space" && st.started && !isTyping(e.target)) e.preventDefault(); }, true);
+
+/* ---------- Chrome: theme, font size, demo links ---------- */
+$("#themeBtn").addEventListener("click", () => {
+  const root = document.documentElement;
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  speak(dark ? "Өдрийн горим." : "Шөнийн горим.");
+});
+$$(".fs-rail button").forEach(b => b.addEventListener("click", () => {
+  const h = document.documentElement; h.classList.remove("fs-sm", "fs-lg");
+  if (b.dataset.fs !== "md") h.classList.add("fs-" + b.dataset.fs);
+  $$(".fs-rail button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+}));
+$$(".demo-off").forEach(a => a.addEventListener("click", e => { e.preventDefault(); speak("Энэ цэс демо хувилбарт идэвхгүй байна."); }));
+$("#voiceSel").addEventListener("change", e => { chimege.voice = e.target.value; renderVoiceInfo(); speak("Хоолой солигдлоо."); });
+initChimege();
+$("#rateSel").addEventListener("change", e => { st.rate = parseFloat(e.target.value) || 1; speak("Уншах хурд өөрчлөгдлөө."); });
+
+/* ---------- Shared storage: votes + feedback (real counts only) ---------- */
+let db = null, uid = null;
+function renderStats(counts, total){
+  const bar = $("#stanceBar"), leg = $("#legend"), box = $("#stats");
+  if (total === null){
+    bar.innerHTML = ""; leg.textContent = "Санал хадгалах сервер энэ харагдацад холбогдоогүй тул статистик харуулах боломжгүй.";
+    box.dataset.say = "Иргэдийн санал бодлын статистик: сервер холбогдоогүй тул харуулах боломжгүй."; return;
+  }
+  if (!total){
+    bar.innerHTML = ""; leg.textContent = "Одоогоор санал ирээгүй байна.";
+    box.dataset.say = "Иргэдийн санал бодлын статистик. Одоогоор санал ирээгүй байна. Энэ нь УИХ-ын гишүүдийн санал хураалт биш."; return;
+  }
+  const keys = ["support","oppose","neutral","critique"];
+  bar.innerHTML = keys.map(k => counts[k] ? `<span style="width:${counts[k] / total * 100}%;background:${STANCE_COLOR[k]}"></span>` : "").join("");
+  leg.innerHTML = keys.map(k => `<span><b style="background:${STANCE_COLOR[k]}"></b>${STANCE[k]}: ${counts[k]} (${Math.round(counts[k] / total * 100)}%)</span>`).join("")
+    + `<span>Нийт: ${total}</span>`;
+  box.dataset.say = "Иргэдийн санал бодлын статистик, энэ хуудсаар ирсэн нийт " + total + " санал. " +
+    keys.map(k => STANCE[k] + " " + counts[k]).join(", ") + ". Энэ нь УИХ-ын гишүүдийн санал хураалт биш.";
+}
+renderStats({}, 0);
+(async () => {
+  if (!(window.claude && typeof window.claude.use === "function")){ renderStats({}, null); return; }
+  const [d, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+  db = d;
+  if (!db){ renderStats({}, null); return; }
+  if (user){ try { uid = await user.id(); } catch(e){ uid = null; } }
+  db.collection("votes").onSnapshot(snap => {
+    const c = { support:0, oppose:0, neutral:0, critique:0 }; let n = 0;
+    snap.docs.forEach(doc => { const v = doc.data(); if (v && v.bill === BILL_ID && c[v.stance] !== undefined){ c[v.stance]++; n++; } });
+    renderStats(c, n);
+  }, () => renderStats({}, null));
+  if (uid){
+    try{
+      const mine = await db.doc("votes/" + uid).get();
+      if (mine.exists){ const v = mine.data(); if (v && STANCE[v.stance]){ st.myVote = v.stance; markVote(v.stance);
+        $("#voteResult").textContent = "Та өмнө нь санал өгсөн: " + STANCE[v.stance] + ". Дахин дарж өөрчилж болно."; } }
+    }catch(e){}
+  }
+})();
+})();
+</script>
+</body>
+</html>
