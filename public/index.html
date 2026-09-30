@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
+<meta name="color-scheme" content="light only">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2026 оны төсвийн тодотгол — Дуут туслахтай хуулийн төсөл</title>
@@ -15,18 +16,6 @@
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
   color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0f141b; --ink:#e9eef5; --muted:#a9b4c3; --navy:#a9c3ee; --nav:#1d3576; --nav-dark:#162a5e;
-    --line:#2a3547; --panel:#161e2a; --panel2:#1d2736; --head-bg:rgba(15,20,27,.86);
-    --support:#5cc98f; --oppose:#f08a80; --neutral:#aab4c2; --critique:#f0c060; --cap-bg:#0b1d3a; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0f141b; --ink:#e9eef5; --muted:#a9b4c3; --navy:#a9c3ee; --nav:#1d3576; --nav-dark:#162a5e;
-  --line:#2a3547; --panel:#161e2a; --panel2:#1d2736; --head-bg:rgba(15,20,27,.86);
-  --support:#5cc98f; --oppose:#f08a80; --neutral:#aab4c2; --critique:#f0c060; --cap-bg:#0b1d3a; color-scheme:dark;
 }
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 170px);font-size:17px}
 html.fs-sm{font-size:15px} html.fs-lg{font-size:20px}
@@ -88,8 +77,6 @@ h1.bill-title{font-size:clamp(1.55rem,2.6vw,2.15rem);line-height:1.2;margin:14px
 
 /* ===== the listen button (signature element) ===== */
 .listen{width:100%;display:flex;align-items:center;gap:18px;text-align:left;border:0;cursor:pointer;background:var(--navy);color:#fff;border-radius:16px;padding:20px 22px;font:inherit;position:relative;overflow:hidden}
-:root[data-theme="dark"] .listen{background:#1d3a6e}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .listen{background:#1d3a6e}}
 .listen .disc{flex:none;width:62px;height:62px;border-radius:50%;background:var(--gold2);display:grid;place-items:center;color:#1B365D;box-shadow:0 0 0 6px rgba(255,199,44,.18)}
 .listen .l-main{font-size:1.28rem;font-weight:800;line-height:1.25;display:block}
 .listen .l-sub{display:block;font-size:.88rem;opacity:.85;margin-top:4px}
@@ -111,8 +98,6 @@ kbd{display:inline-flex;align-items:center;justify-content:center;min-width:2.1e
 
 /* AI badge + summary */
 .ai-badge{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;color:#5a3d00;background:#fff3cf;border:1px solid var(--gold);padding:4px 10px;border-radius:6px}
-:root[data-theme="dark"] .ai-badge{color:#ffe3a1;background:#3a2c0b}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ai-badge{color:#ffe3a1;background:#3a2c0b}}
 .disclaimer{font-size:.85rem;color:var(--muted);margin:10px 0 0}
 .summary{margin-top:18px;border-left:4px solid var(--gold);padding:4px 0 4px 20px}
 .summary p{margin:.6em 0;font-size:1.06rem;max-width:68ch}
@@ -188,8 +173,6 @@ textarea:focus-visible{border-color:var(--navy)}
 .keys dd{margin:0}
 .voice-info{margin-top:14px;font-size:.8rem;color:var(--muted)}
 .warn{margin-top:12px;background:#fff1ee;color:#6d1a12;border:1px solid #e7a79e;border-radius:10px;padding:10px 12px;font-size:.84rem}
-:root[data-theme="dark"] .warn{background:#3a1512;color:#ffd2cc;border-color:#7a3027}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{background:#3a1512;color:#ffd2cc;border-color:#7a3027}}
 .rate{margin-top:12px;display:flex;gap:8px;align-items:center;font-size:.86rem}
 .rate select{font:inherit;padding:4px 8px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
 
@@ -265,7 +248,6 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding:22px 0;font-size
       <span class="lang"><span class="flag" aria-hidden="true"></span>Мон</span>
       <button class="icon-btn demo-off" aria-label="Хайх"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
       <button class="icon-btn demo-off" aria-label="Цэс"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-      <button class="icon-btn" id="themeBtn" aria-label="Шөнийн горим солих"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg></button>
     </div>
   </div>
   <nav class="mainnav" aria-label="Үндсэн цэс">
@@ -1094,13 +1076,7 @@ document.addEventListener("keydown", e => {
 // Firefox fires button clicks on Space keyup — block it so Space only toggles recording.
 document.addEventListener("keyup", e => { if (e.code === "Space" && st.started && !isTyping(e.target)) e.preventDefault(); }, true);
 
-/* ---------- Chrome: theme, font size, demo links ---------- */
-$("#themeBtn").addEventListener("click", () => {
-  const root = document.documentElement;
-  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme = dark ? "light" : "dark";
-  speak(dark ? "Өдрийн горим." : "Шөнийн горим.");
-});
+/* ---------- Chrome: font size, demo links ---------- */
 $$(".fs-rail button").forEach(b => b.addEventListener("click", () => {
   const h = document.documentElement; h.classList.remove("fs-sm", "fs-lg");
   if (b.dataset.fs !== "md") h.classList.add("fs-" + b.dataset.fs);
