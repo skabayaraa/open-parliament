@@ -7,7 +7,8 @@ import crypto from "node:crypto";
 
 const env = process.env;
 const PORT = Number(env.PORT || 3000);
-const TOKEN = env.CHIMEGE_TTS_TOKEN || "";
+// The placeholder from .env.example counts as "no token", so the page falls back cleanly.
+const TOKEN = /^(|paste-your-token-here)$/.test((env.CHIMEGE_TTS_TOKEN || "").trim()) ? "" : env.CHIMEGE_TTS_TOKEN.trim();
 
 // ---- Chimege request format: everything upstream-specific lives here. -------------------
 // Check these names against the API manual in your Chimege console and adjust via .env.
@@ -26,7 +27,7 @@ const VOICES = safeJson(env.CHIMEGE_VOICES) || [
   { id: "MALE1",   label: "Эрэгтэй 1" }, { id: "MALE2",   label: "Эрэгтэй 2" },
 ];
 const DEFAULT_VOICE = env.CHIMEGE_DEFAULT_VOICE || VOICES[0]?.id || "";
-const SEND_VOICE = env.CHIMEGE_SEND_VOICE !== "false";   // set false if voice ids aren't confirmed yet
+const SEND_VOICE = env.CHIMEGE_SEND_VOICE === "true";    // off unless the real voice ids are confirmed in .env
 // Page speed setting (0.8 / 1 / 1.2) -> value sent to Chimege.
 const SPEED_MAP = { "0.8": env.CHIMEGE_SPEED_SLOW || "0.8", "1": env.CHIMEGE_SPEED_NORMAL || "1", "1.2": env.CHIMEGE_SPEED_FAST || "1.2" };
 
@@ -53,10 +54,33 @@ function rateLimited(ip){
   arr.push(now); hits.set(ip, arr);
   return arr.length > RATE_PER_MIN;
 }
+// Drop IPs with no requests in the last minute so the map doesn't grow forever.
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, arr] of hits) if (!arr.some(t => now - t < 60_000)) hits.delete(ip);
+}, 60_000).unref();
+
+// Sends text to Chimege. Returns { ok, status, type, buf?, detail? }. Never logs the text.
+async function synthesize(clean, voice, speed){
+  const headers = { [UPSTREAM.tokenHeader]: TOKEN, "Content-Type": UPSTREAM.contentType };
+  if (SEND_VOICE && voice) headers[UPSTREAM.voiceHeader] = voice;
+  if (speed) headers[UPSTREAM.speedHeader] = speed;
+  if (UPSTREAM.pitch) headers[UPSTREAM.pitchHeader] = UPSTREAM.pitch;
+  const r = await fetch(UPSTREAM.url, { method: "POST", headers, body: clean, signal: AbortSignal.timeout(15_000) });
+  const type = r.headers.get("content-type") || "";
+  if (!r.ok || !/audio|octet-stream/i.test(type)){
+    const detail = (await r.text().catch(() => "")).slice(0, 300);
+    return { ok: false, status: r.status, type, detail };
+  }
+  const buf = Buffer.from(await r.arrayBuffer());
+  return { ok: true, status: r.status, type: /octet-stream/i.test(type) ? "audio/wav" : type, buf };
+}
 
 // ---- app ------------------------------------------------------------------------------------
 const app = express();
 app.disable("x-powered-by");
+// Behind nginx / a hosting proxy, set TRUST_PROXY=1 (number of proxy hops) so rate limits use the visitor's IP.
+if (env.TRUST_PROXY) app.set("trust proxy", /^\d+$/.test(env.TRUST_PROXY) ? Number(env.TRUST_PROXY) : env.TRUST_PROXY);
 app.use(express.json({ limit: "4kb" }));
 app.use(express.static("public"));
 
@@ -82,27 +106,35 @@ app.post("/api/tts", async (req, res) => {
   if (hit){ res.set("X-Cache", "HIT"); return res.type(hit.type).send(hit.buf); }
   if (rateLimited(req.ip)){ console.error("[tts] rate limited — raise RATE_PER_MIN in .env if this happens during normal use"); return res.status(429).json({ error: "rate_limited" }); }
 
-  const headers = { [UPSTREAM.tokenHeader]: TOKEN, "Content-Type": UPSTREAM.contentType };
-  if (SEND_VOICE && v) headers[UPSTREAM.voiceHeader] = v;
-  if (sp) headers[UPSTREAM.speedHeader] = sp;
-  if (UPSTREAM.pitch) headers[UPSTREAM.pitchHeader] = UPSTREAM.pitch;
-
   try{
-    const r = await fetch(UPSTREAM.url, { method: "POST", headers, body: clean, signal: AbortSignal.timeout(15_000) });
-    const type = r.headers.get("content-type") || "";
-    if (!r.ok || !/audio|octet-stream/i.test(type)){
+    const out = await synthesize(clean, v, sp);
+    if (!out.ok){
       // Log status and Chimege's error text — never the user's text (it can be citizen feedback).
-      const detail = (await r.text().catch(() => "")).slice(0, 300);
-      console.error(`[chimege] ${r.status} ${type} chars=${clean.length} ${detail}`);
-      return res.status(502).json({ error: "upstream_error", status: r.status });
+      console.error(`[chimege] ${out.status} ${out.type} chars=${clean.length} ${out.detail}`);
+      return res.status(502).json({ error: "upstream_error", status: out.status });
     }
-    const buf = Buffer.from(await r.arrayBuffer());
-    const outType = /octet-stream/i.test(type) ? "audio/wav" : type;
-    cacheSet(key, { buf, type: outType });
-    res.set("X-Cache", "MISS").type(outType).send(buf);
+    cacheSet(key, { buf: out.buf, type: out.type });
+    res.set("X-Cache", "MISS").type(out.type).send(out.buf);
   }catch(e){
     console.error(`[chimege] request failed: ${e.name}`);
     res.status(504).json({ error: e.name === "TimeoutError" ? "upstream_timeout" : "upstream_unreachable" });
+  }
+});
+
+// Diagnostic the page links to when TTS fails: synthesizes a fixed phrase and reports what Chimege said.
+// Returns status only — never audio, the token or any user text.
+app.get("/api/tts/selftest", async (req, res) => {
+  if (!TOKEN) return res.status(503).json({ ok: false, error: "tts_not_configured", hint: "Set CHIMEGE_TTS_TOKEN in .env" });
+  if (rateLimited(req.ip)) return res.status(429).json({ ok: false, error: "rate_limited" });
+  try{
+    const out = await synthesize("Сайн байна уу.", DEFAULT_VOICE, SPEED_MAP["1"]);
+    res.status(out.ok ? 200 : 502).json({
+      ok: out.ok, upstreamStatus: out.status, contentType: out.type,
+      voiceSent: SEND_VOICE ? DEFAULT_VOICE : null, bytes: out.buf?.length ?? 0,
+      ...(out.ok ? {} : { detail: out.detail, hint: "Compare header names / content type with the Chimege manual and set them in .env" }),
+    });
+  }catch(e){
+    res.status(504).json({ ok: false, error: e.name === "TimeoutError" ? "upstream_timeout" : "upstream_unreachable" });
   }
 });
 

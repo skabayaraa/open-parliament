@@ -604,7 +604,7 @@ async function initChimege(){
 }
 let lastTtsError = "";
 function fetchAudio(text){
-  const key = [text, chimege.voice].join("|");
+  const key = [text, chimege.voice, st.rate].join("|");   // speed is baked into Chimege's audio
   if (audioCache.has(key)) return audioCache.get(key);
   const p = fetch("/api/tts", {
     method: "POST", headers: { "Content-Type": "application/json" },
@@ -612,7 +612,7 @@ function fetchAudio(text){
   }).then(async r => {
       if (!r.ok){
         const j = await r.json().catch(() => ({}));
-        throw new Error(`${j.error || "error"} ${j.status ?? r.status} ${j.detail || ""}`.trim());
+        throw new Error(`${j.error || "error"} ${j.status ?? r.status}`);
       }
       return r.blob();
     })
@@ -638,12 +638,12 @@ function playUrl(url, my, text){
     const fin = () => { if (done) return; done = true; clearInterval(iv); clearTimeout(guard); player.onended = player.onerror = player.onloadedmetadata = null; res(); };
     const iv = setInterval(() => { if (my !== tok){ player.pause(); fin(); } }, 80);
     // Safety net: never hang if the browser doesn't fire "ended".
-    guard = setTimeout(fin, 4000 + text.length * 150);
+    guard = setTimeout(fin, 4000 + text.length * 150 / st.rate);
     player.onloadedmetadata = () => { if (isFinite(player.duration)){ clearTimeout(guard); guard = setTimeout(fin, player.duration * 1000 + 1500); } };
     player.onended = fin; player.onerror = fin;
     showCaption(text);
     player.src = url;
-    player.playbackRate = st.rate; player.preservesPitch = true;
+    player.playbackRate = 1;   // Chimege already applied the speed; don't speed it up again
     player.play().catch(fin);
   });
 }
@@ -899,7 +899,9 @@ async function castVote(s){
   const label = STANCE[s];
   const msg = saved
     ? "Таны санал бүртгэгдлээ: " + label + "."
-    : "Таны сонголт: " + label + ". Анхааруулга: санал хадгалах сервер энэ харагдацад холбогдоогүй тул таны санал хадгалагдаагүй.";
+    : "Таны сонголт: " + label + ". Анхааруулга: " + (db && !uid
+        ? "таныг таньж чадаагүй тул санал хадгалагдаагүй. Нэвтэрч ороод дахин оролдоно уу."
+        : "санал хадгалах сервер энэ харагдацад холбогдоогүй тул таны санал хадгалагдаагүй.");
   $("#voteResult").textContent = msg;
   focusEl($("#recBtn"), { silent: true });
   await speak(msg + " " + FEEDBACK_PROMPT);

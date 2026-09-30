@@ -30,17 +30,21 @@ Browser  ──POST /api/tts {text, voice, speed}──▶  server.js  ──Tok
 
 ## Voices, speed, pitch
 Your plan has 9 voices (4 male, 5 female). Copy their ids from the manual into `CHIMEGE_VOICES`
-and set `CHIMEGE_SEND_VOICE=true` — a "Хоолой" picker then appears in the page.
+and set `CHIMEGE_SEND_VOICE=true` — a "Хоолой" picker then appears in the page. Voice ids are *not* sent
+unless this is `true`, so Chimege's default voice is used until you've confirmed the ids.
 The page's slow / normal / fast setting maps to `CHIMEGE_SPEED_*`; a fixed pitch can be set with `CHIMEGE_PITCH`.
 
 ## What the backend does
-- Rejects text over 200 characters (plan limit). The page already splits text into ≤190-character
+- Rejects text over 200 characters (plan limit). The page already splits text into ≤150-character
   pieces at sentence/comma boundaries and fetches the next piece while the current one plays.
 - Allow-lists voice ids and speed values; strips emoji/symbols before sending.
 - Caches audio in memory (repeated prompts like "Санал өгөх" cost nothing after the first time).
-- Rate-limits 60 requests/minute per IP to protect your quota.
+- Rate-limits new Chimege calls to 300/minute per IP (`RATE_PER_MIN`; cache hits are free). Behind nginx or a
+  hosting proxy, set `TRUST_PROXY=1` so the limit applies per visitor instead of to the proxy.
 - Never logs the text itself — read-back of citizen feedback also goes through TTS.
 - If Chimege is down or the token is missing, the page falls back to the browser voice and says so.
+- `GET /api/tts/selftest` synthesizes a short fixed phrase and returns Chimege's status as JSON (no audio,
+  no token) — open it in the browser when speech fails.
 
 ## Notes
 - Votes/feedback storage in the page uses claude.ai's artifact store, which doesn't exist on localhost,
