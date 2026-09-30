@@ -1,9 +1,9 @@
 {
-  "name": "open-parliament-chimege-prototype",
+  "name": "open-parliament",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=18.17" },
+  "engines": { "node": ">=20" },
   "scripts": {
     "start": "node server.js",
     "test:chimege": "node test-chimege.mjs"

@@ -20,6 +20,7 @@
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 170px);font-size:17px}
 html.fs-sm{font-size:15px} html.fs-lg{font-size:20px}
 *,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:84px}
 img{max-width:100%}
 a{color:var(--navy)}
@@ -233,11 +234,11 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding:22px 0;font-size
 
 <header class="site-head">
   <div class="wrap brandbar">
-    <a class="brand" href="#main" aria-label="Монгол Улсын Их Хурал — нүүр">
+    <a class="brand" href="#main" aria-label="Open Parliament AI — нүүр">
       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAADICAMAAAB28zu6AAAB/lBMVEWfoS3RzWBgq2YlbpihnVVnm5XVXwCnxCjt25YnipyStJDqrwPHrmVTVCanzFuIWQ2u0osrokz/0AM4WHEumCymJAZIV0/MIAFAbI7/AADSmxfQvYXgzC86ax9aMxtTpyr/fwAghsN/fwC/fwC0tAA+MhwDNaFawDMaQpIAAAD9xwT+/vrquAhONhI6JhQSPZfWpwh1VxBCLBNlShGJZw6whwuumDa02Yv+9c8mSYrGmQmYdAyUiEdbQhJ2d1hVZG1twjOifAv+zATJqCX+0QXashq9kgn56bQDmDMWhMU8Vn0uirD+8bsvHBOn1HdGXHapk0xjbGQyU4eKylb/yQORzGz+xwX+zANpcWH+yAD/zgP27MhOtjOb0W3+ywN5xUotqTPYxpDn2Kq8oS2RdzaIfkzVxQ79uwA6ZJDJs3OEaCjgrgZ2XCXbu1T/0AMZojWki0nr2JXRuizoyir//wBlvjF8YypMlZl1wmr/0gA5kadtu1C7pGany4vXAQDkxFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhX7XSAAAAgHRSTlP//////////////xH///////+s////////Af///////wL/AgQD/////wD+//7///////////////////////////9q//v///////////////////9O/y+t/xDO////j///////////Dv///////9D//////wH/////Cf///////x212i8AACmvSURBVHja1X0JQ9tW064hpEmaNOm+v8u33Hv9Hp8ja8fWYiNkm2AwXsJOQsJWQqANWZo0Td+vf/175ki2ZbDBbL2t2gjb2h6NZp6ZOcso9a+/4JK6sjPfvv2XA727ztj67b8W6NtLzDTZ0u2/Euj/WmJaraaxpf/6C4GeBOaxMaCe/OuAvs2s2r1M5l7NYrt/FdC315kQH9y8+YEQV2OMlw769uQqY5Zy7wMs9xSLsdXJ239y0P85CcQm0/7+wQfffvvBB3/XmAnc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" alt="Монгол Улсын төрийн сүлд">
       <div>
-        <p class="brand-title">МОНГОЛ УЛСЫН ИХ ХУРАЛ</p>
-        <div class="brand-sub">Open Parliament AI — иргэдэд зориулсан туслах хэрэгсэл. Улсын Их Хуралтай албан ёсны холбоогүй.</div>
+        <p class="brand-title">Open Parliament AI</p>
+        <div class="brand-sub">Иргэдэд хуулийн төслийг ойлгоход туслах хэрэгсэл. Улсын Их Хуралтай албан ёсны холбоогүй.</div>
       </div>
     </a>
     <div class="head-tools">
@@ -827,7 +828,7 @@ function setVoice(on){
 function closeOverlay(){ $("#overlay").hidden = true; st.started = true; }
 function startVoice(){
   closeOverlay(); setVoice(true);
-  let msg = "Сайн байна уу. Та Улсын Их Хурлын хуулийн төслийн иргэдийн оролцооны хуудсанд байна. Энэ хуудсанд Монгол Улсын хоёр мянга хорин зургаан оны төсвийн тухай хуульд өөрчлөлт оруулах тухай хуулийн төсөл байна. Дээш, доош сум товчоор шилжихэд сонгогдсон хэсгийг уншиж өгнө. Одоо та «Хиймэл оюун ашиглан товч хэлбэрээр сонсох» товч дээр байна. Сонсох бол Энтер дарна уу. Тусламж сонсох бол Эйч товч дарна уу.";
+  let msg = "Сайн байна уу. Та Open Parliament AI хуудсанд байна. Энэ нь Улсын Их Хуралтай албан ёсны холбоогүй, иргэдэд хуулийн төслийг ойлгоход туслах хэрэгсэл. Энэ хуудсанд Монгол Улсын хоёр мянга хорин зургаан оны төсвийн тухай хуульд өөрчлөлт оруулах тухай хуулийн төсөл байна. Дээш, доош сум товчоор шилжихэд сонгогдсон хэсгийг уншиж өгнө. Одоо та «Хиймэл оюун ашиглан товч хэлбэрээр сонсох» товч дээр байна. Сонсох бол Энтер дарна уу. Тусламж сонсох бол Эйч товч дарна уу.";
   if (!chimege.ok && hasTTS && voicesChecked && !mnVoice) msg = "Анхааруулга: таны хөтөчид Монгол хэлний дуу хоолой алга. Хамгийн сайн Монгол дуу хоолойг Майкрософт Эдж хөтөч өгдөг. " + msg;
   focusEl($("#listenBtn"), { silent: true });
   speak(msg);
@@ -872,18 +873,14 @@ function markVote(s){ $$(".vote-btn").forEach(b => b.setAttribute("aria-pressed"
 async function castVote(s){
   exitVoteMode(true);
   markVote(s);
-  let saved = false;
-  if (db && uid){
-    try { await db.doc("votes/" + uid).set({ bill: BILL_ID, stance: s, at: new Date().toISOString() }); saved = true; }
-    catch(e){ saved = false; }
-  }
+  const r = await apiPost("/api/vote", { stance: s });
+  const saved = r.ok;
+  if (saved) renderStats(r.json.counts, r.json.total);
   st.myVote = s;
   const label = STANCE[s];
   const msg = saved
     ? "Таны санал бүртгэгдлээ: " + label + "."
-    : "Таны сонголт: " + label + ". Анхааруулга: " + (db && !uid
-        ? "таныг таньж чадаагүй тул санал хадгалагдаагүй. Нэвтэрч ороод дахин оролдоно уу."
-        : "санал хадгалах сервер энэ харагдацад холбогдоогүй тул таны санал хадгалагдаагүй.");
+    : "Таны сонголт: " + label + ". Анхааруулга: " + failReason(r) + " Таны санал хадгалагдаагүй.";
   $("#voteResult").textContent = msg;
   focusEl($("#recBtn"), { silent: true });
   await speak(msg + " " + FEEDBACK_PROMPT);
@@ -990,21 +987,16 @@ function cancelRec(){
 function toggleRec(){ st.recording ? stopRec() : startRec(st.confirmFb); }
 $("#recBtn").addEventListener("click", toggleRec);
 
+let sendingFb = false;
 async function submitFeedback(){
+  if (sendingFb) return;               // ignore double Enter / double click while sending
   const text = ta.value.trim();
   st.confirmFb = false;
   if (!text){ speak("Санал хүсэлт хоосон байна. Спэйс дарж дуугаар хэлэх эсвэл бичих талбарт бичнэ үү."); return; }
-  let saved = false;
-  if (db){
-    try{
-      await db.collection("feedback").add({
-        bill: BILL_ID, text: text.slice(0, 2000), stance: st.myVote || null,
-        status: "Илгээсэн", createdAt: new Date().toISOString(),
-        classification: { aiResult: null, confidence: null, humanReview: "pending", finalResult: null }
-      });
-      saved = true;
-    }catch(e){ saved = false; }
-  }
+  sendingFb = true;
+  const r = await apiPost("/api/feedback", { text: text.slice(0, 2000), stance: st.myVote || null });
+  sendingFb = false;
+  const saved = r.ok;
   const items = $$("#tracker li");
   items.forEach((li, i) => li.classList.toggle("done", saved && i === 0));
   let msg;
@@ -1013,7 +1005,7 @@ async function submitFeedback(){
     msg = "Таны санал хүсэлт илгээгдлээ. Төлөв: Илгээсэн. " + NO_NEXT_STAGE;
     $("#trackMsg").textContent = "Төлөв: Илгээсэн. " + NO_NEXT_STAGE;
   } else {
-    msg = "Санал хүсэлт илгээгдсэнгүй: санал хадгалах сервер энэ харагдацад холбогдоогүй байна. Текст талбарт хадгалагдсан хэвээр.";
+    msg = "Санал хүсэлт илгээгдсэнгүй: " + failReason(r) + " Текст талбарт хадгалагдсан хэвээр.";
     $("#trackMsg").textContent = msg;
   }
   $("#trackMsg").dataset.say = msg;
@@ -1100,8 +1092,17 @@ $("#voiceSel").addEventListener("change", e => { chimege.voice = e.target.value;
 initChimege();
 $("#rateSel").addEventListener("change", e => { st.rate = parseFloat(e.target.value) || 1; speak("Уншах хурд өөрчлөгдлөө."); });
 
-/* ---------- Shared storage: votes + feedback (real counts only) ---------- */
-let db = null, uid = null;
+/* ---------- Votes + feedback: saved on our server (/api/vote, /api/feedback) ---------- */
+async function apiPost(path, body){
+  try{
+    const r = await fetch(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    return { ok: r.ok, status: r.status, json: await r.json().catch(() => ({})) };
+  }catch(e){ return { ok: false, status: 0, json: {} }; }
+}
+function failReason(r){
+  if (r.status === 429) return "хэт олон удаа илгээсэн тул түр хүлээгээд дахин оролдоно уу.";
+  return "сервертэй холбогдож чадсангүй. Интернэт холболтоо шалгаад дахин оролдоно уу.";
+}
 function renderStats(counts, total){
   const bar = $("#stanceBar"), leg = $("#legend"), box = $("#stats");
   if (total === null){
@@ -1120,25 +1121,22 @@ function renderStats(counts, total){
     keys.map(k => STANCE[k] + " " + counts[k]).join(", ") + ". Энэ нь УИХ-ын гишүүдийн санал хураалт биш.";
 }
 renderStats({}, 0);
-(async () => {
-  if (!(window.claude && typeof window.claude.use === "function")){ renderStats({}, null); return; }
-  const [d, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
-  db = d;
-  if (!db){ renderStats({}, null); return; }
-  if (user){ try { uid = await user.id(); } catch(e){ uid = null; } }
-  db.collection("votes").onSnapshot(snap => {
-    const c = { support:0, oppose:0, neutral:0, critique:0 }; let n = 0;
-    snap.docs.forEach(doc => { const v = doc.data(); if (v && v.bill === BILL_ID && c[v.stance] !== undefined){ c[v.stance]++; n++; } });
-    renderStats(c, n);
-  }, () => renderStats({}, null));
-  if (uid){
-    try{
-      const mine = await db.doc("votes/" + uid).get();
-      if (mine.exists){ const v = mine.data(); if (v && STANCE[v.stance]){ st.myVote = v.stance; markVote(v.stance);
-        $("#voteResult").textContent = "Та өмнө нь санал өгсөн: " + STANCE[v.stance] + ". Дахин дарж өөрчилж болно."; } }
-    }catch(e){}
-  }
-})();
+let statsLoaded = false;
+async function loadVotes(first){
+  try{
+    const r = await fetch("/api/votes", { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    const j = await r.json();
+    renderStats(j.counts, j.total); statsLoaded = true;
+    if (first && j.mine && STANCE[j.mine]){
+      st.myVote = j.mine; markVote(j.mine);
+      $("#voteResult").textContent = "Та өмнө нь санал өгсөн: " + STANCE[j.mine] + ". Дахин дарж өөрчилж болно.";
+    }
+  }catch(e){ if (!statsLoaded) renderStats({}, null); }
+}
+loadVotes(true);
+// Refresh the counts every 30 s while the tab is visible, so people see others' votes come in.
+setInterval(() => { if (!document.hidden) loadVotes(false); }, 30000);
 })();
 </script>
 </body>
